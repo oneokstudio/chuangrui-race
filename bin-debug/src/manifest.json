@@ -1,4 +1,6 @@
 [
+	"BitmapMenuItem.ts",
+	"GameScene.ts",
 	"LoadingUI.ts",
-	"StartMenu.ts"
+	"Main.ts"
 ]

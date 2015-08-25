@@ -1,4 +1,6 @@
 var game_file_list = [
+	"BitmapMenuItem.js",
+	"GameScene.js",
 	"LoadingUI.js",
-	"StartMenu.js"
+	"Main.js"
 ];

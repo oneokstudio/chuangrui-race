@@ -1,5 +1,5 @@
 {
-	"document_class": "StartMenu",
+	"document_class": "Main",
 	"modules": [
 		{
 			"name": "core"
