@@ -1,4 +1,10 @@
 [
+	"entity/Game.ts",
+	"entity/Obstacle.ts",
+	"UIScene.ts",
+	"controller/ObjectPool.ts",
+	"controller/ObstacleManager.ts",
+	"entity/Player.ts",
 	"BitmapMenuItem.ts",
 	"GameScene.ts",
 	"LoadingUI.ts",
