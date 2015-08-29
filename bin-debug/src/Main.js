@@ -1,6 +1,14 @@
 /**
  * Created by Mr.Lan on 2015/8/25.
  */
+//百度统计
+var _hmt = _hmt || [];
+(function () {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?d27eb011cfaaf4346491183b633dcddd";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+})();
 var Main = (function (_super) {
     __extends(Main, _super);
     function Main() {
@@ -89,6 +97,7 @@ var Main = (function (_super) {
                 this.rootStage.addChild(gameScene);
                 egret.Tween.get(gameScene).to({ x: 0 }, 200).call(this.onAnimationEnd, this);
                 egret.Tween.get(this).to({ x: -this.stageW }, 200);
+                _hmt.push(["_trackEvent", "button", "click", "start"]);
                 break;
         }
     };

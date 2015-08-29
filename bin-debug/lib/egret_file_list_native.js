@@ -105,6 +105,8 @@ var egret_file_list = [
 	"core/egret/context/display/NativeStageText.js",
 	"core/egret/context/net/NativeResourceLoader.js",
 	"core/egret/context/audio/NativeAudio.js",
+	"core/egret/context/audio/NaAudio.js",
+	"core/egret/context/NativeTexture.js",
 	"core/extension/version/DefaultLoadingView.js",
 	"core/extension/version/Html5VersionController.js",
 	"core/extension/version/NativeVersionController.js",
@@ -121,5 +123,7 @@ var egret_file_list = [
 	"core/extension/resource/analyzer/FontAnalyzer.js",
 	"core/extension/resource/analyzer/SoundAnalyzer.js",
 	"core/extension/resource/analyzer/XMLAnalyzer.js",
-	"core/extension/resource/Resource.js"
+	"core/extension/resource/Resource.js",
+	"weixinapi/jweixin-1.0.0.js",
+	"weixinapi/jweixin-1.0.0-additional.js"
 ];

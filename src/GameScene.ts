@@ -59,6 +59,7 @@ class GameScene extends egret.DisplayObjectContainer {
             if(this.obstacleManager.isOverlapping(this.player)) {
                 this.game.state = false;
                 this.timer.stop();
+                _hmt.push(["_trackEvent", "game", "state", "over"]);
             }
         }
     }
