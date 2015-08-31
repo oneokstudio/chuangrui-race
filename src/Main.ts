@@ -20,16 +20,12 @@ class Main extends egret.DisplayObjectContainer {
     private stageW:number;
     private stageH:number;
     private rootStage:egret.Stage;
+    private bgImage:egret.Bitmap;
 
     public constructor() {
         super();
         this.rootStage = egret.MainContext.instance.stage;
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
-        this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoveFromStage, this);
-    }
-
-    private onRemoveFromStage(event:egret.Event) {
-        console.log("first scene is removed");
     }
 
     private onAddToStage(event:egret.Event) {
@@ -98,15 +94,27 @@ class Main extends egret.DisplayObjectContainer {
     private createStartScene() {
         this.stageH = this.rootStage.stageHeight;
         this.stageW = this.rootStage.stageWidth;
-        var startMenuItem:BitmapMenuItem = new BitmapMenuItem("startMenu", "start_N", "start_S", this.onMenuItemClick, this);
+
+        //背景图片
+        this.bgImage = new egret.Bitmap();
+        this.bgImage.texture = RES.getRes("bgImage");
+        this.bgImage.width = this.stageW;
+        this.bgImage.height = this.stageH;
+        this.addChild(this.bgImage);
+
+        //开始游戏按钮
+        var startMenuItem:BitmapMenuItem = new BitmapMenuItem("startMenu", "ImageSheet.startButton", this.onMenuItemClick, this);
         this.addChild(startMenuItem);
-        startMenuItem.anchorX = startMenuItem.anchorY = 0.5;
         startMenuItem.x = this.stageW / 2;
-        startMenuItem.y = this.stageH / 2;
+        startMenuItem.y = this.stageH / 2 - 150;
+        //说明按钮
+        var noticeMenuItem:BitmapMenuItem = new BitmapMenuItem("noticeMenu", "ImageSheet.noticeButton", this.onMenuItemClick, this);
+        this.addChild(noticeMenuItem);
+        noticeMenuItem.x = this.stageW / 2;
+        noticeMenuItem.y = this.stageH / 2 + 110;
     }
 
     private onMenuItemClick(name:string) {
-        console.log(name + " is clicked");
         switch(name) {
             case "startMenu":
                 var gameScene = new GameScene();

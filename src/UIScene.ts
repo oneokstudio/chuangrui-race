@@ -7,8 +7,9 @@ class UIScene extends egret.DisplayObjectContainer {
     public right:boolean;
     private game:Entity.Game;
     private textField:egret.TextField;
-    private leftButton:egret.Sprite;
-    private rightButton:egret.Sprite;
+    private leftButton:egret.Bitmap;
+    private rightButton:egret.Bitmap;
+    private wingPanel:egret.Bitmap;
 
     constructor() {
         super();
@@ -16,8 +17,9 @@ class UIScene extends egret.DisplayObjectContainer {
         this.left = false;
         this.right = false;
         this.textField = new egret.TextField();
-        this.leftButton = new egret.Sprite();
-        this.rightButton = new egret.Sprite();
+        this.leftButton = new egret.Bitmap();
+        this.rightButton = new egret.Bitmap();
+        this.wingPanel = new egret.Bitmap();
         this.createUI();
     }
 
@@ -25,29 +27,36 @@ class UIScene extends egret.DisplayObjectContainer {
         var stageW = egret.MainContext.instance.stage.stageWidth;
         var stageH = egret.MainContext.instance.stage.stageHeight;
         //score label
-        this.textField.text = "0M";
-        this.textField.textColor = 0xffff00;
-        this.textField.size = 64;
-        this.textField.x = this.textField.y = 10;
-        this.addChild(this.textField);
-        //left button
+        //this.textField.text = "0M";
+        //this.textField.textColor = 0xffff00;
+        //this.textField.size = 64;
+        //this.textField.x = this.textField.y = 10;
+        //this.addChild(this.textField);
+
+        //µ×²¿³á°òÀ¸
+        this.wingPanel.texture = RES.getRes("ImageSheet.wing");
+        this.wingPanel.anchorX = this.wingPanel.anchorY = 0.5;
+        this.wingPanel.x = stageW / 2;
+        this.wingPanel.y = stageH - 65;
+        this.addChild(this.wingPanel);
+
+        //×ó°´Å¥
         this.leftButton.touchEnabled = true;
-        this.leftButton.graphics.beginFill(0x00ff00);
-        this.leftButton.graphics.drawRect(0, 0, 128, 64);
-        this.leftButton.graphics.endFill();
-        this.leftButton.x = 20;
-        this.leftButton.y = stageH - 70;
+        this.leftButton.texture = RES.getRes("ImageSheet.leftButton");
+        this.leftButton.x = 67;
+        this.leftButton.y = stageH - 50;
+        this.leftButton.anchorX = this.leftButton.anchorY = 0.5;
         this.leftButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onLeftTouchBegin, this);
         this.leftButton.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onLeftTouchEnd, this);
         this.leftButton.addEventListener(egret.TouchEvent.TOUCH_END, this.onLeftTouchEnd, this);
         this.addChild(this.leftButton);
-        //right button
+
+        //ÓÒ°´Å¥
         this.rightButton.touchEnabled = true;
-        this.rightButton.graphics.beginFill(0x0000ff);
-        this.rightButton.graphics.drawRect(0, 0, 128, 64);
-        this.rightButton.graphics.endFill();
-        this.rightButton.x = stageW - 148;
-        this.rightButton.y = stageH - 70;
+        this.rightButton.texture = RES.getRes("ImageSheet.rightButton");
+        this.rightButton.x = stageW - 67;
+        this.rightButton.y = stageH - 50;
+        this.rightButton.anchorX = this.rightButton.anchorY = 0.5;
         this.rightButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onRightTouchBegin, this);
         this.rightButton.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onRightTouchEnd, this);
         this.rightButton.addEventListener(egret.TouchEvent.TOUCH_END, this.onRightTouchEnd, this);
@@ -60,18 +69,22 @@ class UIScene extends egret.DisplayObjectContainer {
 
     private onLeftTouchBegin(event:egret.TouchEvent) {
         this.left = true;
+        this.leftButton.scaleX = this.leftButton.scaleY = 0.9;
     }
 
     private onLeftTouchEnd(event:egret.TouchEvent) {
         this.left = false;
+        this.leftButton.scaleX = this.leftButton.scaleY = 1;
     }
 
     private onRightTouchBegin(event:egret.TouchEvent) {
         this.right = true;
+        this.rightButton.scaleX = this.rightButton.scaleY = 0.9;
     }
 
     private onRightTouchEnd(event:egret.TouchEvent) {
         this.right = false;
+        this.rightButton.scaleX = this.rightButton.scaleY = 1;
     }
 
     public static getInstance():UIScene {

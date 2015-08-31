@@ -11,12 +11,12 @@ var Controller;
         }
         var __egretProto__ = ObstacleManager.prototype;
         __egretProto__.checkOverlapping = function (obstacle, player) {
-            obstacle.getBounds(this.obstacleBounds);
-            player.getBounds(this.playerBounds);
-            this.obstacleBounds.x = obstacle.x;
-            this.obstacleBounds.y = obstacle.y;
-            this.playerBounds.x = player.x;
-            this.playerBounds.y = player.y;
+            obstacle.getBounds(this.obstacleBounds, true);
+            player.getBounds(this.playerBounds, true);
+            this.obstacleBounds.x += obstacle.x;
+            this.obstacleBounds.y += obstacle.y;
+            this.playerBounds.x += player.x;
+            this.playerBounds.y += player.y;
             return this.obstacleBounds.intersects(this.playerBounds);
         };
         __egretProto__.setScene = function (playScene) {

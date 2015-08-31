@@ -9,8 +9,8 @@ var Entity;
             _super.call(this);
             this.key = "obstacle";
             this.objectPool = ObjectPool.getInstance();
-            this.speed = 0.6;
             this.stageH = egret.MainContext.instance.stage.stageHeight;
+            this.game = Entity.Game.getInstance();
             this.createShape();
         }
         var __egretProto__ = Obstacle.prototype;
@@ -27,7 +27,7 @@ var Entity;
             this.graphics.endFill();
         };
         __egretProto__.onEnterFrame = function (advancedTime) {
-            this.y += this.speed * advancedTime;
+            this.y += this.game.obstacleSpeed * advancedTime;
             if (this.y > this.stageH - 100) {
                 this.parent.removeChild(this);
                 this.objectPool.destroyObject(this);

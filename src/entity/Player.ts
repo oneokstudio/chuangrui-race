@@ -6,34 +6,35 @@ module Entity {
         private speed:number;
         private leftBound:number;
         private rightBound:number;
+        private carBitmap:egret.Bitmap;
         private UIScene:UIScene;
 
         constructor(left?:number, right?:number) {
             super();
 
             this.speed = 0.3;
-            this.leftBound = left || 52;
-            this.rightBound = right || egret.MainContext.instance.stage.stageWidth - 52;
+            this.leftBound = left || 104;
+            this.rightBound = right || egret.MainContext.instance.stage.stageWidth - 104;
             this.UIScene = UIScene.getInstance();
-            this.createShape();
+            this.carBitmap = new egret.Bitmap();
+            this.createCar();
         }
 
-        private createShape() {
-            this.width = 64;
-            this.height = 128;
+        private createCar() {
+            this.carBitmap.texture = RES.getRes("ImageSheet.car");
+            this.addChild(this.carBitmap);
+
             this.anchorX = this.anchorY = 0.5;
-            this.graphics.beginFill(0x00f200, 0.8);
-            this.graphics.drawRect(0, 0, this.width, this.height);
-            this.graphics.endFill();
         }
 
         public updatePosition(advancedTime:number) {
             if (this.UIScene.left && this.UIScene.right)
                 return;
-            if (this.UIScene.left && this.x > this.leftBound)
+            if (this.UIScene.left && this.x > this.leftBound) {
                 this.x -= this.speed * advancedTime;
-            else if (this.UIScene.right && this.x < this.rightBound)
+            }else if (this.UIScene.right && this.x < this.rightBound) {
                 this.x += this.speed * advancedTime;
+            }
         }
     }
 }

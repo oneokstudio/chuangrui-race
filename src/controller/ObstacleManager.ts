@@ -10,12 +10,12 @@ module Controller {
         private playerBounds:egret.Rectangle = new egret.Rectangle();
 
         private checkOverlapping(obstacle:egret.Sprite, player:egret.Sprite) {
-            obstacle.getBounds(this.obstacleBounds);
-            player.getBounds(this.playerBounds);
-            this.obstacleBounds.x = obstacle.x;
-            this.obstacleBounds.y = obstacle.y;
-            this.playerBounds.x = player.x;
-            this.playerBounds.y = player.y;
+            obstacle.getBounds(this.obstacleBounds, true);
+            player.getBounds(this.playerBounds, true);
+            this.obstacleBounds.x += obstacle.x;
+            this.obstacleBounds.y += obstacle.y;
+            this.playerBounds.x += player.x;
+            this.playerBounds.y += player.y;
             return this.obstacleBounds.intersects(this.playerBounds);
         }
 

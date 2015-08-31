@@ -6,30 +6,20 @@
       "url": "assets/bg.jpg"
     },
     {
-      "name": "egretIcon",
+      "name": "road",
       "type": "image",
-      "url": "assets/egret_icon.png"
+      "url": "assets/Road.png"
     },
     {
-      "name": "description",
-      "type": "json",
-      "url": "config/description.json"
-    },
-    {
-      "name": "start_N",
-      "type": "image",
-      "url": "assets/start_N.png"
-    },
-    {
-      "name": "start_S",
-      "type": "image",
-      "url": "assets/start_S.png"
+      "name": "ImageSheet",
+      "type": "sheet",
+      "url": "assets/ImageSheet.json"
     }
   ],
   "groups": [
     {
       "name": "preload",
-      "keys": "start_S, start_N"
+      "keys": "bgImage, ImageSheet, road"
     }
   ]
 }

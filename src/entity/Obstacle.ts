@@ -5,8 +5,8 @@ module Entity {
     export class Obstacle extends egret.Sprite {
         public key:string = "obstacle";
         private objectPool:ObjectPool = ObjectPool.getInstance();
-        private speed:number = 0.6;
         private stageH:number = egret.MainContext.instance.stage.stageHeight;
+        private game:Game = Game.getInstance();
 
         constructor() {
             super();
@@ -29,7 +29,7 @@ module Entity {
         }
 
         public onEnterFrame(advancedTime:number) {
-            this.y += this.speed * advancedTime;
+            this.y += this.game.obstacleSpeed * advancedTime;
             if(this.y > this.stageH - 100) {
                 this.parent.removeChild(this);
                 this.objectPool.destroyObject(this);

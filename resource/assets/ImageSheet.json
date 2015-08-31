@@ -1,0 +1,7 @@
+{"file":"ImageSheet.png","frames":{
+"startButton":{"x":1,"y":385,"w":522,"h":220,"offX":0,"offY":0,"sourceW":522,"sourceH":240},
+"noticeButton":{"x":1,"y":163,"w":522,"h":220,"offX":0,"offY":18,"sourceW":522,"sourceH":238},
+"rightButton":{"x":525,"y":163,"w":98,"h":100,"offX":24,"offY":0,"sourceW":122,"sourceH":100},
+"leftButton":{"x":625,"y":163,"w":98,"h":100,"offX":0,"offY":0,"sourceW":122,"sourceH":100},
+"car":{"x":874,"y":1,"w":125,"h":229,"offX":0,"offY":0,"sourceW":125,"sourceH":229},
+"wing":{"x":1,"y":1,"w":871,"h":160,"offX":0,"offY":53,"sourceW":871,"sourceH":282}}}

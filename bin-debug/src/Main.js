@@ -15,12 +15,8 @@ var Main = (function (_super) {
         _super.call(this);
         this.rootStage = egret.MainContext.instance.stage;
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
-        this.addEventListener(egret.Event.REMOVED_FROM_STAGE, this.onRemoveFromStage, this);
     }
     var __egretProto__ = Main.prototype;
-    __egretProto__.onRemoveFromStage = function (event) {
-        console.log("first scene is removed");
-    };
     __egretProto__.onAddToStage = function (event) {
         //设置加载进度界面
         //Config to load process interface
@@ -81,14 +77,24 @@ var Main = (function (_super) {
     __egretProto__.createStartScene = function () {
         this.stageH = this.rootStage.stageHeight;
         this.stageW = this.rootStage.stageWidth;
-        var startMenuItem = new BitmapMenuItem("startMenu", "start_N", "start_S", this.onMenuItemClick, this);
+        //背景图片
+        this.bgImage = new egret.Bitmap();
+        this.bgImage.texture = RES.getRes("bgImage");
+        this.bgImage.width = this.stageW;
+        this.bgImage.height = this.stageH;
+        this.addChild(this.bgImage);
+        //开始游戏按钮
+        var startMenuItem = new BitmapMenuItem("startMenu", "ImageSheet.startButton", this.onMenuItemClick, this);
         this.addChild(startMenuItem);
-        startMenuItem.anchorX = startMenuItem.anchorY = 0.5;
         startMenuItem.x = this.stageW / 2;
-        startMenuItem.y = this.stageH / 2;
+        startMenuItem.y = this.stageH / 2 - 150;
+        //说明按钮
+        var noticeMenuItem = new BitmapMenuItem("noticeMenu", "ImageSheet.noticeButton", this.onMenuItemClick, this);
+        this.addChild(noticeMenuItem);
+        noticeMenuItem.x = this.stageW / 2;
+        noticeMenuItem.y = this.stageH / 2 + 110;
     };
     __egretProto__.onMenuItemClick = function (name) {
-        console.log(name + " is clicked");
         switch (name) {
             case "startMenu":
                 var gameScene = new GameScene();
