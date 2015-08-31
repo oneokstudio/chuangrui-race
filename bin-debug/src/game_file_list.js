@@ -3,6 +3,7 @@ var game_file_list = [
 	"controller/ObjectPool.js",
 	"controller/ObstacleManager.js",
 	"entity/Game.js",
+	"NoticeScene.js",
 	"UIScene.js",
 	"Main.js",
 	"entity/Player.js",

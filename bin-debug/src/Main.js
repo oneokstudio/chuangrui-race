@@ -105,6 +105,14 @@ var Main = (function (_super) {
                 egret.Tween.get(this).to({ x: -this.stageW }, 200);
                 _hmt.push(["_trackEvent", "button", "click", "start"]);
                 break;
+            case "noticeMenu":
+                var noticeScene = new NoticeScene();
+                noticeScene.x = this.stageW;
+                noticeScene.y = 0;
+                this.rootStage.addChild(noticeScene);
+                egret.Tween.get(noticeScene).to({ x: 0 }, 200).call(this.onAnimationEnd, this);
+                egret.Tween.get(this).to({ x: -this.stageW }, 200);
+                break;
         }
     };
     __egretProto__.onAnimationEnd = function () {
