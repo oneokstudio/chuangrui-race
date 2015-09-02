@@ -33,14 +33,14 @@ class UIScene extends egret.DisplayObjectContainer {
         //this.textField.x = this.textField.y = 10;
         //this.addChild(this.textField);
 
-        //µ×²¿³á°òÀ¸
+        //åº•éƒ¨ç¿…è†€æ 
         this.wingPanel.texture = RES.getRes("ImageSheet.wing");
         this.wingPanel.anchorX = this.wingPanel.anchorY = 0.5;
         this.wingPanel.x = stageW / 2;
         this.wingPanel.y = stageH - 65;
         this.addChild(this.wingPanel);
 
-        //×ó°´Å¥
+        //å·¦æŒ‰é’®
         this.leftButton.touchEnabled = true;
         this.leftButton.texture = RES.getRes("ImageSheet.leftButton");
         this.leftButton.x = 67;
@@ -51,7 +51,7 @@ class UIScene extends egret.DisplayObjectContainer {
         this.leftButton.addEventListener(egret.TouchEvent.TOUCH_END, this.onLeftTouchEnd, this);
         this.addChild(this.leftButton);
 
-        //ÓÒ°´Å¥
+        //å³æŒ‰é’®
         this.rightButton.touchEnabled = true;
         this.rightButton.texture = RES.getRes("ImageSheet.rightButton");
         this.rightButton.x = stageW - 67;

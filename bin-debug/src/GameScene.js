@@ -5,6 +5,7 @@ var GameScene = (function (_super) {
     __extends(GameScene, _super);
     function GameScene() {
         _super.call(this);
+        egret.StageDelegate.getInstance().setDesignSize(808, 799);
         this.game = Entity.Game.getInstance();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.initGame, this);
         egret.Ticker.getInstance().register(this.onEnterFrame, this);
