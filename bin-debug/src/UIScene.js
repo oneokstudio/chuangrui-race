@@ -24,13 +24,11 @@ var UIScene = (function (_super) {
         //this.textField.size = 64;
         //this.textField.x = this.textField.y = 10;
         //this.addChild(this.textField);
-        //�ײ�������
         this.wingPanel.texture = RES.getRes("ImageSheet.wing");
         this.wingPanel.anchorX = this.wingPanel.anchorY = 0.5;
         this.wingPanel.x = stageW / 2;
         this.wingPanel.y = stageH - 65;
         this.addChild(this.wingPanel);
-        //����ť
         this.leftButton.touchEnabled = true;
         this.leftButton.texture = RES.getRes("ImageSheet.leftButton");
         this.leftButton.x = 67;
@@ -40,7 +38,6 @@ var UIScene = (function (_super) {
         this.leftButton.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onLeftTouchEnd, this);
         this.leftButton.addEventListener(egret.TouchEvent.TOUCH_END, this.onLeftTouchEnd, this);
         this.addChild(this.leftButton);
-        //�Ұ�ť
         this.rightButton.touchEnabled = true;
         this.rightButton.texture = RES.getRes("ImageSheet.rightButton");
         this.rightButton.x = stageW - 67;

@@ -3,6 +3,7 @@
 	"controller/ObjectPool.ts",
 	"controller/ObstacleManager.ts",
 	"entity/Game.ts",
+	"NoticeScene.ts",
 	"UIScene.ts",
 	"Main.ts",
 	"entity/Player.ts",
