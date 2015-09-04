@@ -25,16 +25,16 @@ var UIScene = (function (_super) {
         //this.textField.x = this.textField.y = 10;
         //this.addChild(this.textField);
         //底部翅膀栏
-        this.wingPanel.texture = RES.getRes("ImageSheet.wing");
+        this.wingPanel.texture = RES.getRes("wing");
         this.wingPanel.anchorX = this.wingPanel.anchorY = 0.5;
         this.wingPanel.x = stageW / 2;
-        this.wingPanel.y = stageH - 65;
+        this.wingPanel.y = stageH - 50;
         this.addChild(this.wingPanel);
         //左按钮
         this.leftButton.touchEnabled = true;
         this.leftButton.texture = RES.getRes("ImageSheet.leftButton");
         this.leftButton.x = 67;
-        this.leftButton.y = stageH - 50;
+        this.leftButton.y = stageH - 35;
         this.leftButton.anchorX = this.leftButton.anchorY = 0.5;
         this.leftButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onLeftTouchBegin, this);
         this.leftButton.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onLeftTouchEnd, this);
@@ -44,7 +44,7 @@ var UIScene = (function (_super) {
         this.rightButton.touchEnabled = true;
         this.rightButton.texture = RES.getRes("ImageSheet.rightButton");
         this.rightButton.x = stageW - 67;
-        this.rightButton.y = stageH - 50;
+        this.rightButton.y = stageH - 35;
         this.rightButton.anchorX = this.rightButton.anchorY = 0.5;
         this.rightButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onRightTouchBegin, this);
         this.rightButton.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onRightTouchEnd, this);

@@ -8,7 +8,7 @@
     {
       "name": "road",
       "type": "image",
-      "url": "assets/Road.png"
+      "url": "assets/road.jpg"
     },
     {
       "name": "noticeBg",
@@ -19,12 +19,17 @@
       "name": "ImageSheet",
       "type": "sheet",
       "url": "assets/ImageSheet.json"
+    },
+    {
+      "name": "wing",
+      "type": "image",
+      "url": "assets/wing.png"
     }
   ],
   "groups": [
     {
       "name": "preload",
-      "keys": "bgImage, ImageSheet, road, noticeBg"
+      "keys": "bgImage, ImageSheet, road, noticeBg, wing"
     }
   ]
 }

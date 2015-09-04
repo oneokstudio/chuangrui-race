@@ -1,6 +1,9 @@
 [
 	"entity/Obstacle.ts",
 	"controller/ObjectPool.ts",
+	"entity/HotObstacle.ts",
+	"entity/OverloadObstacle.ts",
+	"entity/ShakeObstacle.ts",
 	"controller/ObstacleManager.ts",
 	"BitmapMenuItem.ts",
 	"ItemView.ts",

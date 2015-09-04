@@ -11,6 +11,7 @@ var Entity;
             this.objectPool = ObjectPool.getInstance();
             this.stageH = egret.MainContext.instance.stage.stageHeight;
             this.game = Entity.Game.getInstance();
+            this.bgBitmap = new egret.Bitmap();
             this.createShape();
         }
         var __egretProto__ = Obstacle.prototype;
@@ -19,12 +20,6 @@ var Entity;
             this.y = y;
         };
         __egretProto__.createShape = function () {
-            this.width = 64;
-            this.height = 64;
-            this.anchorX = this.anchorY = 0.5;
-            this.graphics.beginFill(0xff0000, 0.8);
-            this.graphics.drawRect(0, 0, this.width, this.height);
-            this.graphics.endFill();
         };
         __egretProto__.onEnterFrame = function (advancedTime) {
             this.y += this.game.obstacleSpeed * advancedTime;

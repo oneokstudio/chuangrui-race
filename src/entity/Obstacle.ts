@@ -4,6 +4,7 @@
 module Entity {
     export class Obstacle extends egret.Sprite {
         public key:string = "obstacle";
+        public bgBitmap:egret.Bitmap;
         private objectPool:ObjectPool = ObjectPool.getInstance();
         private stageH:number = egret.MainContext.instance.stage.stageHeight;
         private game:Game = Game.getInstance();
@@ -11,6 +12,7 @@ module Entity {
         constructor() {
             super();
 
+            this.bgBitmap = new egret.Bitmap();
             this.createShape();
         }
 
@@ -19,13 +21,8 @@ module Entity {
             this.y = y;
         }
 
-        private createShape() {
-            this.width = 64;
-            this.height = 64;
-            this.anchorX = this.anchorY = 0.5;
-            this.graphics.beginFill(0xff0000, 0.8);
-            this.graphics.drawRect(0, 0, this.width, this.height);
-            this.graphics.endFill();
+        public createShape() {
+
         }
 
         public onEnterFrame(advancedTime:number) {
