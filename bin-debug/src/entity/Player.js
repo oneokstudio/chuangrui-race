@@ -21,13 +21,20 @@ var Entity;
             this.anchorX = this.anchorY = 0.5;
         };
         __egretProto__.updatePosition = function (advancedTime) {
-            if (this.UIScene.left && this.UIScene.right)
+            if (this.UIScene.left && this.UIScene.right) {
+                this.rotation = 0;
                 return;
+            }
             if (this.UIScene.left && this.x > this.leftBound) {
                 this.x -= this.speed * advancedTime;
+                this.rotation = -10;
             }
             else if (this.UIScene.right && this.x < this.rightBound) {
                 this.x += this.speed * advancedTime;
+                this.rotation = 10;
+            }
+            else {
+                this.rotation = 0;
             }
         };
         return Player;

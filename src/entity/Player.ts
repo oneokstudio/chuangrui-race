@@ -28,12 +28,18 @@ module Entity {
         }
 
         public updatePosition(advancedTime:number) {
-            if (this.UIScene.left && this.UIScene.right)
+            if (this.UIScene.left && this.UIScene.right) {
+                this.rotation = 0;
                 return;
+            }
             if (this.UIScene.left && this.x > this.leftBound) {
                 this.x -= this.speed * advancedTime;
+                this.rotation = -10;
             }else if (this.UIScene.right && this.x < this.rightBound) {
                 this.x += this.speed * advancedTime;
+                this.rotation = 10;
+            }else {
+                this.rotation = 0;
             }
         }
     }

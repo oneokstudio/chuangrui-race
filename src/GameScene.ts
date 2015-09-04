@@ -9,10 +9,12 @@ class GameScene extends egret.DisplayObjectContainer {
     private game:Entity.Game;
     private stageH:number;
     private stageW:number;
+    private endScene:EndScene;
 
     constructor() {
         super();
         this.game = Entity.Game.getInstance();
+        this.endScene = EndScene.getInstance();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.initGame, this);
         egret.Ticker.getInstance().register(this.onEnterFrame, this);
     }
@@ -53,6 +55,7 @@ class GameScene extends egret.DisplayObjectContainer {
                 this.game.gameOver();
                 this.removeEventListener(egret.Event.ENTER_FRAME, this.onEnterFrame, this);
                 _hmt.push(["_trackEvent", "game", "state", "over"]);
+                this.addChild(this.endScene);
                 return;
             }
             this.player.updatePosition(advancedTime);

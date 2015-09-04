@@ -22,6 +22,7 @@ class NoticeScene extends egret.DisplayObjectContainer {
         this.bgImage.texture = RES.getRes("noticeBg");
         this.bgImage.width = this.stageW;
         this.bgImage.height = this.stageH;
+        this.bgImage.x = this.bgImage.y = 0;
         this.addChild(this.bgImage);
         console.log("add notice bg");
 
