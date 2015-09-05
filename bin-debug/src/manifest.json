@@ -2,7 +2,6 @@
 	"entity/Obstacle.ts",
 	"controller/ObjectPool.ts",
 	"controller/ObstacleManager.ts",
-	"BitmapMenuItem.ts",
 	"ItemView.ts",
 	"entity/Game.ts",
 	"NoticeScene.ts",
@@ -12,6 +11,7 @@
 	"Main.ts",
 	"entity/Player.ts",
 	"entity/Road.ts",
+	"BitmapMenuItem.ts",
 	"GameScene.ts",
 	"LoadingUI.ts"
 ]

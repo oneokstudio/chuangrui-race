@@ -333,6 +333,7 @@ declare class ShareEvent{
  */
 declare class BodyMenuShareTimeline extends ShareEvent{
     title:string;
+    desc:string;
     link:string;
     imgUrl:string;
 }
