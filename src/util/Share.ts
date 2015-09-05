@@ -82,6 +82,13 @@ class Share extends egret.DisplayObjectContainer {
             'onMenuShareWeibo'
         ];
         wx.config(bodyConfig);
+        this.toWeiXin(
+            this.shareData.title,
+            this.shareData.desc,
+            this.shareData.link,
+            this.shareData.imgUrl,
+            0
+        );
     }
 
     /**
@@ -91,9 +98,9 @@ class Share extends egret.DisplayObjectContainer {
      * @link        		游戏链接
      * @imgUrl      		分享icon链接
      * @type        		0：设置分享到朋友圈和朋友数据 1:设置分享到朋友数据 2：设置分享到朋友圈数据
-     * @backFun        	    分享结束的回调
+     * @callback        	分享结束的回调
      */
-    public toWeiXin(title,desc,link,imgUrl,type:number = 0,backFun:Function = null):void {//微信分享
+    public toWeiXin(title,desc,link,imgUrl,type:number = 0, callback:Function = null):void {//微信分享
         this.shareData.title = title;
         this.shareData.desc = desc;
         this.shareData.link = link;
@@ -106,6 +113,9 @@ class Share extends egret.DisplayObjectContainer {
             bodyMenuShareAppMessage.desc = bodyMenuShareTimeline.desc = _this.shareData.desc;
             bodyMenuShareAppMessage.link = bodyMenuShareTimeline.link = _this.shareData.link;
             bodyMenuShareAppMessage.imgUrl = bodyMenuShareTimeline.imgUrl = _this.shareData.imgUrl;
+            if (callback) {
+                bodyMenuShareAppMessage.success = bodyMenuShareTimeline.success = callback;
+            }
 
             if(type == 0){
                 wx.onMenuShareAppMessage(bodyMenuShareAppMessage);
