@@ -13,16 +13,6 @@ module Global {
         console.log(Global.share);
     }
 
-    /**
-     * http 请求
-     * @method              方法
-     * @data                数据
-     * @callback        	分享结束的回调
-     */
-    export function http(method, data, callback:Function = null):void {
-
-    }
-
     //手机旋转适配
     //注意：
     //在egret_loader.js中，rootContainer要放startGame在外定义
