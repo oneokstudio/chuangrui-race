@@ -28,9 +28,7 @@ var Controller;
             this.playScene = playScene;
         };
         __egretProto__.produce = function () {
-            var index = Math.round(Math.random() * 2);
-            console.log(index);
-            this.playScene.addChild(this.objectPool.createObject(this.obstacleClass[index], Math.random() * 9 * 64 + 32, -32));
+            this.playScene.addChild(this.objectPool.createObject(this.obstacleClass[Math.round(Math.random() * 2)], Math.random() * 9 * 64 + 32, -32));
         };
         __egretProto__.updatePool = function (advancedTime) {
             this.objectPool.updatePool(advancedTime);

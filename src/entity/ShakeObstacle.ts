@@ -3,7 +3,7 @@
  */
 module Entity {
     export class ShakeObstacle extends Entity.Obstacle {
-        public key:string = "shake";
+        public static key:string = "shake";
 
         constructor() {
             super();

@@ -3,7 +3,7 @@
  */
 module Entity {
     export class HotObstacle extends Entity.Obstacle {
-        public key:string = "hot";
+        public static key:string = "hot";
 
         constructor() {
             super();

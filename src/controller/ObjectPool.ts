@@ -20,17 +20,18 @@ class ObjectPool {
         var arr = this._pool[key];
         if (arr != null && arr.length) {
             result = arr.shift();
-        }
-        else {
+            console.log("reuse a " + classFactory.key);
+        } else {
             result = new classFactory();
             result.key = key;
+            console.log("create a " + result.key);
         }
         result.onCreate(x, y);
         this._list.push(result);
         return result;
     }
 
-    public destroyObject(obj:Entity.Obstacle) {
+    public destroyObject(obj:any) {
         var key = obj.key;
         if (this._pool[key] == null) {
             this._pool[key] = [];

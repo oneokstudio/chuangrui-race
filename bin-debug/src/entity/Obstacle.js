@@ -21,16 +21,16 @@ var Entity;
         };
         __egretProto__.createShape = function () {
         };
+        __egretProto__.onDestroy = function () {
+            this.x = 0;
+            this.y = 0;
+        };
         __egretProto__.onEnterFrame = function (advancedTime) {
             this.y += this.game.obstacleSpeed * advancedTime;
             if (this.y > this.stageH - 100) {
                 this.parent.removeChild(this);
                 this.objectPool.destroyObject(this);
             }
-        };
-        __egretProto__.onDestroy = function () {
-            this.x = 0;
-            this.y = 0;
         };
         return Obstacle;
     })(egret.Sprite);

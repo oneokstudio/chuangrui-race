@@ -3,7 +3,7 @@
  */
 module Entity {
     export class OverloadObstacle extends Entity.Obstacle {
-        public key:string = "overload";
+        public static key:string = "overload";
 
         constructor() {
             super();

@@ -110,7 +110,8 @@ class Share extends egret.DisplayObjectContainer {
             var bodyMenuShareTimeline = new BodyMenuShareTimeline();
             var bodyMenuShareAppMessage = new BodyMenuShareAppMessage();
             bodyMenuShareAppMessage.title = bodyMenuShareTimeline.title = _this.shareData.title;
-            bodyMenuShareAppMessage.desc = bodyMenuShareTimeline.desc = _this.shareData.desc;
+            //分享到朋友圈没有详情字段
+            bodyMenuShareAppMessage.desc = _this.shareData.desc;
             bodyMenuShareAppMessage.link = bodyMenuShareTimeline.link = _this.shareData.link;
             bodyMenuShareAppMessage.imgUrl = bodyMenuShareTimeline.imgUrl = _this.shareData.imgUrl;
             if (callback) {
