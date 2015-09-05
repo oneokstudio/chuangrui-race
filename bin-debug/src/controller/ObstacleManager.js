@@ -8,7 +8,11 @@ var Controller;
             this.objectPool = ObjectPool.getInstance();
             this.obstacleBounds = new egret.Rectangle();
             this.playerBounds = new egret.Rectangle();
-            this.obstacleClass = [Entity.HotObstacle, Entity.OverloadObstacle, Entity.ShakeObstacle];
+            this.obstacleClass = {
+                "0": Entity.HotObstacle,
+                "1": Entity.OverloadObstacle,
+                "2": Entity.ShakeObstacle
+            };
         }
         var __egretProto__ = ObstacleManager.prototype;
         __egretProto__.checkOverlapping = function (obstacle, player) {
@@ -24,7 +28,9 @@ var Controller;
             this.playScene = playScene;
         };
         __egretProto__.produce = function () {
-            this.playScene.addChild(this.objectPool.createObject(this.obstacleClass[0], Math.random() * 9 * 64 + 32, -32));
+            var index = Math.round(Math.random() * 2);
+            console.log(index);
+            this.playScene.addChild(this.objectPool.createObject(this.obstacleClass[index], Math.random() * 9 * 64 + 32, -32));
         };
         __egretProto__.updatePool = function (advancedTime) {
             this.objectPool.updatePool(advancedTime);

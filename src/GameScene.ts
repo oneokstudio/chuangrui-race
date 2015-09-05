@@ -51,13 +51,13 @@ class GameScene extends egret.DisplayObjectContainer {
 
     public onEnterFrame(advancedTime:number):void {
         if(this.game.state) {
-            if(this.game.obstacleManager.isOverlapping(this.player)) {
+/*            if(this.game.obstacleManager.isOverlapping(this.player)) {
                 this.game.gameOver();
                 this.removeEventListener(egret.Event.ENTER_FRAME, this.onEnterFrame, this);
                 _hmt.push(["_trackEvent", "game", "state", "over"]);
                 this.addChild(this.endScene);
                 return;
-            }
+            }*/
             this.player.updatePosition(advancedTime);
             this.game.obstacleManager.updatePool(advancedTime);
             this.bg.updateBgPosition(advancedTime);

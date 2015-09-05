@@ -5,16 +5,16 @@
 	"entity/OverloadObstacle.ts",
 	"entity/ShakeObstacle.ts",
 	"controller/ObstacleManager.ts",
-	"BitmapMenuItem.ts",
 	"ItemView.ts",
 	"entity/Game.ts",
-	"NoticeScene.ts",
 	"RankScene.ts",
 	"UIScene.ts",
 	"EndScene.ts",
-	"Main.ts",
 	"entity/Player.ts",
 	"entity/Road.ts",
+	"BitmapMenuItem.ts",
 	"GameScene.ts",
-	"LoadingUI.ts"
+	"LoadingUI.ts",
+	"NoticeScene.ts",
+	"Main.ts"
 ]
