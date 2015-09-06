@@ -1,6 +1,7 @@
 [
 	"entity/Obstacle.ts",
 	"controller/ObjectPool.ts",
+	"entity/BuffObstacle.ts",
 	"entity/HotObstacle.ts",
 	"entity/OverloadObstacle.ts",
 	"entity/ShakeObstacle.ts",

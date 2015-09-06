@@ -27,8 +27,11 @@ var Controller;
         __egretProto__.setScene = function (playScene) {
             this.playScene = playScene;
         };
-        __egretProto__.produce = function () {
-            this.playScene.addChild(this.objectPool.createObject(this.obstacleClass[Math.round(Math.random() * 2)], Math.random() * 9 * 64 + 32, -32));
+        __egretProto__.produce = function (type) {
+            if (type === 0)
+                this.playScene.addChild(this.objectPool.createObject(this.obstacleClass[Math.round(Math.random() * 2)], Math.random() * 9 * 64 + 32, -80));
+            else
+                this.playScene.addChild(this.objectPool.createObject(Entity.BuffObstacle, Math.random() * 9 * 64 + 32, -80));
         };
         __egretProto__.updatePool = function (advancedTime) {
             this.objectPool.updatePool(advancedTime);

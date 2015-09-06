@@ -28,8 +28,11 @@ module Controller {
             this.playScene = playScene;
         }
 
-        public produce() {
-            this.playScene.addChild(this.objectPool.createObject(this.obstacleClass[Math.round(Math.random() * 2)], Math.random() * 9 * 64 + 32, -32));
+        public produce(type:number) {
+            if(type === 0)
+                this.playScene.addChild(this.objectPool.createObject(this.obstacleClass[Math.round(Math.random() * 2)], Math.random() * 9 * 64 + 32, -80));
+            else
+                this.playScene.addChild(this.objectPool.createObject(Entity.BuffObstacle, Math.random() * 9 * 64 + 32, -80))
         }
 
         public updatePool(advancedTime: number) {

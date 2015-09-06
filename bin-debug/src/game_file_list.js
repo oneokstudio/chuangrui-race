@@ -1,6 +1,7 @@
 var game_file_list = [
 	"entity/Obstacle.js",
 	"controller/ObjectPool.js",
+	"entity/BuffObstacle.js",
 	"entity/HotObstacle.js",
 	"entity/OverloadObstacle.js",
 	"entity/ShakeObstacle.js",

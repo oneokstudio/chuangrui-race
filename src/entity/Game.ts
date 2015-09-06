@@ -26,8 +26,7 @@ module Entity {
         public gameStart() {
             this.score = 0;
             this.state = true;
-            this.obstacleSpeed = 0.6;
-            this.obstacleManager.produce();
+            this.obstacleSpeed = 0.4;
             this.timer.start();
         }
 
@@ -37,8 +36,14 @@ module Entity {
         }
 
         private onSpeedUp() {
-            this.obstacleManager.produce();
-            this.obstacleSpeed += 0.01;
+            egret.callLater(function() {
+                var randomNumber = Math.round(Math.random() * 10);
+                if(randomNumber > 4) {
+                    this.obstacleManager.produce(0);
+                }else {
+                    this.obstacleManager.produce(1);
+                }
+            }, this);
         }
     }
 }
