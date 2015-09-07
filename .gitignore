@@ -1,3 +1,4 @@
 .idea/
 bin-debug/
-release/
+/release/html5/*
+!/release/html5/*.zip
