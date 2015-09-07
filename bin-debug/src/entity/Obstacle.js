@@ -32,6 +32,9 @@ var Entity;
                 this.objectPool.destroyObject(this);
             }
         };
+        __egretProto__.onOverlapping = function () {
+            return true;
+        };
         return Obstacle;
     })(egret.Sprite);
     Entity.Obstacle = Obstacle;

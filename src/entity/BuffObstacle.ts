@@ -14,5 +14,11 @@ module Entity {
             this.addChild(this.bgBitmap);
             this.anchorX = this.anchorY = 0.5;
         }
+
+        public onOverlapping() {
+            this.parent.removeChild(this);
+            this.objectPool.destroyObject(this);
+            return false;
+        }
     }
 }

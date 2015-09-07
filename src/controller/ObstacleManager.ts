@@ -30,9 +30,9 @@ module Controller {
 
         public produce(type:number) {
             if(type === 0)
-                this.playScene.addChild(this.objectPool.createObject(this.obstacleClass[Math.round(Math.random() * 2)], Math.random() * 9 * 64 + 32, -80));
+                this.playScene.addChild(this.objectPool.createObject(this.obstacleClass[Math.round(Math.random() * 2)], Math.random() * 392 + 156, -80));
             else
-                this.playScene.addChild(this.objectPool.createObject(Entity.BuffObstacle, Math.random() * 9 * 64 + 32, -80))
+                this.playScene.addChild(this.objectPool.createObject(Entity.BuffObstacle, Math.random() * 392 + 156, -80))
         }
 
         public updatePool(advancedTime: number) {
@@ -41,8 +41,9 @@ module Controller {
 
         public isOverlapping(player:egret.Sprite):boolean {
             for(var i = 0, length = this.objectPool._list.length; i < length; i++) {
-                if(this.checkOverlapping(this.objectPool._list[i], player))
-                    return true;
+                if(this.checkOverlapping(this.objectPool._list[i], player)) {
+                    return this.objectPool._list[i].onOverlapping();
+                }
             }
             return false;
         }

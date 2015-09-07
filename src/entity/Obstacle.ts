@@ -37,5 +37,9 @@ module Entity {
                 this.objectPool.destroyObject(this);
             }
         }
+
+        public onOverlapping() {
+            return true;
+        }
     }
 }

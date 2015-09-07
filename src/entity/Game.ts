@@ -40,6 +40,7 @@ module Entity {
                 var randomNumber = Math.round(Math.random() * 10);
                 if(randomNumber > 4) {
                     this.obstacleManager.produce(0);
+                    this.obstacleSpeed += 0.01;
                 }else {
                     this.obstacleManager.produce(1);
                 }

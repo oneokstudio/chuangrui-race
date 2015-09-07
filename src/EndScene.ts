@@ -24,12 +24,12 @@ class EndScene extends egret.DisplayObjectContainer {
         this.addChild(this.maskLayer);
 
         //排行榜
-        var rankScene = new RankScene();
-        rankScene.width = this.stageW * 0.8;
-        rankScene.anchorX = rankScene.anchorY = 0.5;
-        rankScene.x = this.stageW / 2;
-        rankScene.y = this.stageH / 2;
-        this.addChild(rankScene);
+        //var rankScene = new RankScene();
+        //rankScene.width = this.stageW * 0.8;
+        //rankScene.anchorX = rankScene.anchorY = 0.5;
+        //rankScene.x = this.stageW / 2;
+        //rankScene.y = this.stageH / 2;
+        //this.addChild(rankScene);
     }
 
     public static getInstance() {

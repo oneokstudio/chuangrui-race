@@ -13,8 +13,8 @@ module Entity {
             super();
 
             this.speed = 0.3;
-            this.leftBound = left || 104;
-            this.rightBound = right || egret.MainContext.instance.stage.stageWidth - 104;
+            this.leftBound = left || 142;
+            this.rightBound = right || egret.MainContext.instance.stage.stageWidth - 142;
             this.UIScene = UIScene.getInstance();
             this.carBitmap = new egret.Bitmap();
             this.createCar();
