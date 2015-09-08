@@ -22,6 +22,9 @@ class Main extends egret.DisplayObjectContainer {
     private rootStage:egret.Stage;
     private bgImage:egret.Bitmap;
 
+    private bgSound:egret.Sound;
+    private gamingSound:egret.Sound;
+
     public constructor() {
         super();
         this.rootStage = egret.MainContext.instance.stage;
@@ -63,6 +66,12 @@ class Main extends egret.DisplayObjectContainer {
             RES.removeEventListener(RES.ResourceEvent.GROUP_LOAD_ERROR, this.onResourceLoadError, this);
             RES.removeEventListener(RES.ResourceEvent.GROUP_PROGRESS, this.onResourceProgress, this);
             this.createStartScene();
+
+            Global.init();
+            this.bgSound = RES.getRes("bg-m");
+            if (GlobalData.music) {
+                this.bgSound.play(true);
+            }
         }
     }
 
@@ -123,6 +132,9 @@ class Main extends egret.DisplayObjectContainer {
                 this.rootStage.addChild(gameScene);
                 egret.Tween.get(gameScene).to({x : 0}, 200).call(this.onAnimationEnd, this);
                 egret.Tween.get(this).to({x : -this.stageW}, 200);
+                if (GlobalData.music) {
+                    this.bgSound.pause();
+                }
                 _hmt.push(["_trackEvent", "button", "click", "start"]);
                 break;
             case "noticeMenu":

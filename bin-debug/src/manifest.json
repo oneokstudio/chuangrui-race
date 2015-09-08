@@ -1,11 +1,13 @@
 [
 	"entity/Obstacle.ts",
+	"util/Share.ts",
 	"controller/ObjectPool.ts",
 	"entity/BuffObstacle.ts",
 	"entity/HotObstacle.ts",
 	"entity/OverloadObstacle.ts",
 	"entity/ShakeObstacle.ts",
 	"controller/ObstacleManager.ts",
+	"util/GlobalData.ts",
 	"entity/Game.ts",
 	"NoticeScene.ts",
 	"UIScene.ts",
@@ -15,5 +17,6 @@
 	"entity/Road.ts",
 	"BitmapMenuItem.ts",
 	"GameScene.ts",
-	"LoadingUI.ts"
+	"LoadingUI.ts",
+	"util/Global.ts"
 ]

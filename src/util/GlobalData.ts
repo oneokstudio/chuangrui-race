@@ -4,6 +4,10 @@
  */
 module GlobalData {
     /*********************分数全局变量**********************/
+    //音乐开关
+    export var music:boolean = true;
+
+    /*********************分数全局变量**********************/
     //当前分数
     export var currentScore:number = 0;
 

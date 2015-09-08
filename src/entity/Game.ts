@@ -6,6 +6,8 @@ module Entity {
         //对象单例
         private static _instance:Game;
         private _score:number;
+        private bgSound:egret.Sound;
+        private gamingBgSound:egret.Sound;
         public time:number;
         public state:boolean;
         public obstacleSpeed:number;
@@ -13,6 +15,8 @@ module Entity {
         public obstacleManager:Controller.ObstacleManager;
 
         constructor() {
+            this.bgSound = RES.getRes("bg-m");
+            this.gamingBgSound = RES.getRes("gaming-m");
             this.obstacleManager = Controller.ObstacleManager.getInstance();
             this.timer.addEventListener(egret.TimerEvent.TIMER, this.onSpeedUp, this);
         }
@@ -25,6 +29,9 @@ module Entity {
         }
 
         public gameStart() {
+            if (GlobalData.music) {
+                this.gamingBgSound.play(true);
+            }
             this.score = 0;
             this.state = true;
             this.time = 120;
@@ -33,6 +40,10 @@ module Entity {
         }
 
         public gameOver() {
+            if (GlobalData.music) {
+                this.gamingBgSound.pause();
+                this.bgSound.play(true);
+            }
             this.state = false;
             this.timer.stop();
         }

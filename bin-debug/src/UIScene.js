@@ -44,6 +44,7 @@ var UIScene = (function (_super) {
         this.leftButton.texture = RES.getRes("ImageSheet.leftButton");
         this.leftButton.x = 67;
         this.leftButton.y = stageH - 35;
+        this.leftButton.scaleX = this.leftButton.scaleY = 1.4;
         this.leftButton.anchorX = this.leftButton.anchorY = 0.5;
         this.leftButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onLeftTouchBegin, this);
         this.leftButton.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onLeftTouchEnd, this);
@@ -54,6 +55,7 @@ var UIScene = (function (_super) {
         this.rightButton.texture = RES.getRes("ImageSheet.rightButton");
         this.rightButton.x = stageW - 67;
         this.rightButton.y = stageH - 35;
+        this.leftButton.scaleX = this.leftButton.scaleY = 1.4;
         this.rightButton.anchorX = this.rightButton.anchorY = 0.5;
         this.rightButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onRightTouchBegin, this);
         this.rightButton.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onRightTouchEnd, this);
@@ -66,19 +68,19 @@ var UIScene = (function (_super) {
     };
     __egretProto__.onLeftTouchBegin = function (event) {
         this.left = true;
-        this.leftButton.scaleX = this.leftButton.scaleY = 0.9;
+        this.leftButton.scaleX = this.leftButton.scaleY = 1.2;
     };
     __egretProto__.onLeftTouchEnd = function (event) {
         this.left = false;
-        this.leftButton.scaleX = this.leftButton.scaleY = 1;
+        this.leftButton.scaleX = this.leftButton.scaleY = 1.4;
     };
     __egretProto__.onRightTouchBegin = function (event) {
         this.right = true;
-        this.rightButton.scaleX = this.rightButton.scaleY = 0.9;
+        this.rightButton.scaleX = this.rightButton.scaleY = 1.2;
     };
     __egretProto__.onRightTouchEnd = function (event) {
         this.right = false;
-        this.rightButton.scaleX = this.rightButton.scaleY = 1;
+        this.rightButton.scaleX = this.rightButton.scaleY = 1.4;
     };
     UIScene.getInstance = function () {
         if (this._instance == null) {

@@ -9,6 +9,10 @@ module Entity {
         private carBitmap:egret.Bitmap;
         private UIScene:UIScene;
 
+        private crashSound:egret.Sound;
+        private heatSound:egret.Sound;
+        private hitSound:egret.Sound;
+
         constructor(left?:number, right?:number) {
             super();
 
@@ -16,6 +20,10 @@ module Entity {
             this.leftBound = left || 142;
             this.rightBound = right || egret.MainContext.instance.stage.stageWidth - 142;
             this.UIScene = UIScene.getInstance();
+            this.crashSound = RES.getRes("crash-m");
+            this.heatSound = RES.getRes("heat-m");
+            this.hitSound = RES.getRes("hit-m");
+
             this.carBitmap = new egret.Bitmap();
             this.createCar();
         }
@@ -49,7 +57,8 @@ module Entity {
          */
         public op(cmd:string) {
             switch (cmd) {
-                case "null":
+                case "buff":
+                    this.buff();
                     break;
                 case "shake":
                     this.shake();
@@ -62,11 +71,18 @@ module Entity {
                     break;
             }
         }
-
+        /**
+         * 遇上TE
+         */
+        private buff() {
+            this.hitSound.play();
+            console.log('buff sound');
+        }
         /**
          * 执行屏幕抖动效果
          */
         private shake() {
+            this.crashSound.play();
             egret.Tween.get(this.parent.parent).to({x : -10}, 50).to({x : 10}, 100).to({x : 0}, 50);
         }
 
@@ -74,6 +90,7 @@ module Entity {
          * 执行闪烁效果
          */
         private blink() {
+            this.heatSound.play();
             egret.Tween.get(this).to({alpha : 0.5}, 100).to({alpha : 1}, 100).to({alpha : 0.5}, 100).to({alpha : 1}, 100);
         }
 
@@ -81,6 +98,7 @@ module Entity {
          * 执行旋转效果
          */
         private rotate() {
+            this.crashSound.play();
             egret.Tween.get(this).to({rotation : 360}, 1000);
         }
     }

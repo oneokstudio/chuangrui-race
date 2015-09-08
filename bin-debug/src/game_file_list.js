@@ -1,11 +1,13 @@
 var game_file_list = [
 	"entity/Obstacle.js",
+	"util/Share.js",
 	"controller/ObjectPool.js",
 	"entity/BuffObstacle.js",
 	"entity/HotObstacle.js",
 	"entity/OverloadObstacle.js",
 	"entity/ShakeObstacle.js",
 	"controller/ObstacleManager.js",
+	"util/GlobalData.js",
 	"entity/Game.js",
 	"NoticeScene.js",
 	"UIScene.js",
@@ -15,5 +17,6 @@ var game_file_list = [
 	"entity/Road.js",
 	"BitmapMenuItem.js",
 	"GameScene.js",
-	"LoadingUI.js"
+	"LoadingUI.js",
+	"util/Global.js"
 ];

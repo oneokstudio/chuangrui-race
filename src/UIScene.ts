@@ -57,6 +57,7 @@ class UIScene extends egret.DisplayObjectContainer {
         this.leftButton.texture = RES.getRes("ImageSheet.leftButton");
         this.leftButton.x = 67;
         this.leftButton.y = stageH - 35;
+        this.leftButton.scaleX = this.leftButton.scaleY = 1.4;
         this.leftButton.anchorX = this.leftButton.anchorY = 0.5;
         this.leftButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onLeftTouchBegin, this);
         this.leftButton.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onLeftTouchEnd, this);
@@ -68,6 +69,7 @@ class UIScene extends egret.DisplayObjectContainer {
         this.rightButton.texture = RES.getRes("ImageSheet.rightButton");
         this.rightButton.x = stageW - 67;
         this.rightButton.y = stageH - 35;
+        this.leftButton.scaleX = this.leftButton.scaleY = 1.4;
         this.rightButton.anchorX = this.rightButton.anchorY = 0.5;
         this.rightButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onRightTouchBegin, this);
         this.rightButton.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onRightTouchEnd, this);
@@ -82,22 +84,22 @@ class UIScene extends egret.DisplayObjectContainer {
 
     private onLeftTouchBegin(event:egret.TouchEvent) {
         this.left = true;
-        this.leftButton.scaleX = this.leftButton.scaleY = 0.9;
+        this.leftButton.scaleX = this.leftButton.scaleY = 1.2;
     }
 
     private onLeftTouchEnd(event:egret.TouchEvent) {
         this.left = false;
-        this.leftButton.scaleX = this.leftButton.scaleY = 1;
+        this.leftButton.scaleX = this.leftButton.scaleY = 1.4;
     }
 
     private onRightTouchBegin(event:egret.TouchEvent) {
         this.right = true;
-        this.rightButton.scaleX = this.rightButton.scaleY = 0.9;
+        this.rightButton.scaleX = this.rightButton.scaleY = 1.2;
     }
 
     private onRightTouchEnd(event:egret.TouchEvent) {
         this.right = false;
-        this.rightButton.scaleX = this.rightButton.scaleY = 1;
+        this.rightButton.scaleX = this.rightButton.scaleY = 1.4;
     }
 
     public static getInstance():UIScene {

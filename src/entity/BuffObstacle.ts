@@ -24,7 +24,7 @@ module Entity {
             this.parent.removeChild(this);
             this.objectPool.destroyObject(this);
             this.game.score += 200;
-            return "null";
+            return "buff";
         }
     }
 }
