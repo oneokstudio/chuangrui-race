@@ -42,5 +42,46 @@ module Entity {
                 this.rotation = 0;
             }
         }
+
+        /**
+         * 执行碰撞回馈
+         * @param cmd 效果名
+         */
+        public op(cmd:string) {
+            switch (cmd) {
+                case "null":
+                    break;
+                case "shake":
+                    this.shake();
+                    break;
+                case "overload":
+                    this.rotate();
+                    break;
+                case "hot":
+                    this.blink();
+                    break;
+            }
+        }
+
+        /**
+         * 执行屏幕抖动效果
+         */
+        private shake() {
+            egret.Tween.get(this.parent.parent).to({x : -10}, 50).to({x : 10}, 100).to({x : 0}, 50);
+        }
+
+        /**
+         * 执行闪烁效果
+         */
+        private blink() {
+            egret.Tween.get(this).to({alpha : 0.5}, 100).to({alpha : 1}, 100).to({alpha : 0.5}, 100).to({alpha : 1}, 100);
+        }
+
+        /**
+         * 执行旋转效果
+         */
+        private rotate() {
+            egret.Tween.get(this).to({rotation : 360}, 1000);
+        }
     }
 }

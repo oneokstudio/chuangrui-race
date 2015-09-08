@@ -15,10 +15,18 @@ module Controller {
         };
 
         private checkOverlapping(obstacle:egret.Sprite, player:egret.Sprite) {
+            //障碍物在玩家身后不判断碰撞
+            if(obstacle.y > player.y)
+                return false;
             obstacle.getBounds(this.obstacleBounds, true);
             player.getBounds(this.playerBounds, true);
             this.obstacleBounds.x += obstacle.x;
             this.obstacleBounds.y += obstacle.y;
+
+            //障碍物大小调整为80%
+            this.obstacleBounds.width *= 0.8;
+            this.obstacleBounds.height *= 0.8;
+
             this.playerBounds.x += player.x;
             this.playerBounds.y += player.y;
             return this.obstacleBounds.intersects(this.playerBounds);
@@ -39,13 +47,13 @@ module Controller {
             this.objectPool.updatePool(advancedTime);
         }
 
-        public isOverlapping(player:egret.Sprite):boolean {
+        public isOverlapping(player:egret.Sprite):string {
             for(var i = 0, length = this.objectPool._list.length; i < length; i++) {
                 if(this.checkOverlapping(this.objectPool._list[i], player)) {
                     return this.objectPool._list[i].onOverlapping();
                 }
             }
-            return false;
+            return "null";
         }
 
         public static getInstance():ObstacleManager {

@@ -16,10 +16,16 @@ var Controller;
         }
         var __egretProto__ = ObstacleManager.prototype;
         __egretProto__.checkOverlapping = function (obstacle, player) {
+            //障碍物在玩家身后不判断碰撞
+            if (obstacle.y > player.y)
+                return false;
             obstacle.getBounds(this.obstacleBounds, true);
             player.getBounds(this.playerBounds, true);
             this.obstacleBounds.x += obstacle.x;
             this.obstacleBounds.y += obstacle.y;
+            //障碍物大小调整为80%
+            this.obstacleBounds.width *= 0.8;
+            this.obstacleBounds.height *= 0.8;
             this.playerBounds.x += player.x;
             this.playerBounds.y += player.y;
             return this.obstacleBounds.intersects(this.playerBounds);
@@ -42,7 +48,7 @@ var Controller;
                     return this.objectPool._list[i].onOverlapping();
                 }
             }
-            return false;
+            return "null";
         };
         ObstacleManager.getInstance = function () {
             if (ObstacleManager.instance == null) {

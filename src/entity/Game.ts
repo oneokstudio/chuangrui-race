@@ -5,7 +5,8 @@ module Entity {
     export class Game {
         //对象单例
         private static _instance:Game;
-        public score:number;
+        private _score:number;
+        public time:number;
         public state:boolean;
         public obstacleSpeed:number;
         public timer:egret.Timer = new egret.Timer(1000, 0);
@@ -26,7 +27,8 @@ module Entity {
         public gameStart() {
             this.score = 0;
             this.state = true;
-            this.obstacleSpeed = 0.4;
+            this.time = 120;
+            this.obstacleSpeed = 0.65;
             this.timer.start();
         }
 
@@ -36,15 +38,27 @@ module Entity {
         }
 
         private onSpeedUp() {
+            this.time--;
             egret.callLater(function() {
                 var randomNumber = Math.round(Math.random() * 10);
-                if(randomNumber > 4) {
+                if(randomNumber > 5) {
                     this.obstacleManager.produce(0);
-                    this.obstacleSpeed += 0.01;
+                    //this.obstacleSpeed += 0.01;
                 }else {
                     this.obstacleManager.produce(1);
                 }
             }, this);
+        }
+
+        get score() {
+            return this._score;
+        }
+
+        set score(newNumber:number) {
+            if(newNumber < 0)
+                this._score = 0;
+            else
+                this._score = newNumber;
         }
     }
 }

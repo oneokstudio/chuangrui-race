@@ -24,6 +24,7 @@ var Entity;
         __egretProto__.onDestroy = function () {
             this.x = 0;
             this.y = 0;
+            this.game.score += 50;
         };
         __egretProto__.onEnterFrame = function (advancedTime) {
             this.y += this.game.obstacleSpeed * advancedTime;
@@ -33,7 +34,7 @@ var Entity;
             }
         };
         __egretProto__.onOverlapping = function () {
-            return true;
+            return "null";
         };
         return Obstacle;
     })(egret.Sprite);

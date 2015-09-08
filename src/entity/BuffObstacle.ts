@@ -15,10 +15,16 @@ module Entity {
             this.anchorX = this.anchorY = 0.5;
         }
 
+        public onDestroy() {
+            this.x = 0;
+            this.y = 0;
+        }
+
         public onOverlapping() {
             this.parent.removeChild(this);
             this.objectPool.destroyObject(this);
-            return false;
+            this.game.score += 200;
+            return "null";
         }
     }
 }

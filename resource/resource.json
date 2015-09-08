@@ -24,12 +24,17 @@
       "name": "wing",
       "type": "image",
       "url": "assets/wing.png"
+    },
+    {
+      "name": "rank",
+      "type": "image",
+      "url": "assets/rank.png"
     }
   ],
   "groups": [
     {
       "name": "preload",
-      "keys": "bgImage, ImageSheet, road, noticeBg, wing"
+      "keys": "bgImage, ImageSheet, road, noticeBg, wing, rank"
     }
   ]
 }

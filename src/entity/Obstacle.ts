@@ -28,6 +28,7 @@ module Entity {
         public onDestroy() {
             this.x = 0;
             this.y = 0;
+            this.game.score += 50;
         }
 
         public onEnterFrame(advancedTime:number) {
@@ -38,8 +39,8 @@ module Entity {
             }
         }
 
-        public onOverlapping() {
-            return true;
+        public onOverlapping():string {
+            return "null";
         }
     }
 }
