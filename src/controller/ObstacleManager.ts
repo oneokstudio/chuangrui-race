@@ -56,6 +56,10 @@ module Controller {
             return "null";
         }
 
+        public clearPool() {
+            this.objectPool.clearPool();
+        }
+
         public static getInstance():ObstacleManager {
             if(ObstacleManager.instance == null) {
                 ObstacleManager.instance = new ObstacleManager();

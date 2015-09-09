@@ -55,7 +55,7 @@ var UIScene = (function (_super) {
         this.rightButton.texture = RES.getRes("ImageSheet.rightButton");
         this.rightButton.x = stageW - 67;
         this.rightButton.y = stageH - 35;
-        this.leftButton.scaleX = this.leftButton.scaleY = 1.4;
+        this.rightButton.scaleX = this.rightButton.scaleY = 1.4;
         this.rightButton.anchorX = this.rightButton.anchorY = 0.5;
         this.rightButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onRightTouchBegin, this);
         this.rightButton.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onRightTouchEnd, this);

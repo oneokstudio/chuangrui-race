@@ -50,6 +50,9 @@ var Controller;
             }
             return "null";
         };
+        __egretProto__.clearPool = function () {
+            this.objectPool.clearPool();
+        };
         ObstacleManager.getInstance = function () {
             if (ObstacleManager.instance == null) {
                 ObstacleManager.instance = new ObstacleManager();

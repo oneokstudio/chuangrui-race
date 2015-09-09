@@ -46,6 +46,7 @@ module Entity {
             }
             this.state = false;
             this.timer.stop();
+            this.obstacleManager.clearPool();
         }
 
         private onSpeedUp() {

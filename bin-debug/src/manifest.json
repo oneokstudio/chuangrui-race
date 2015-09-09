@@ -11,12 +11,15 @@
 	"entity/Game.ts",
 	"NoticeScene.ts",
 	"UIScene.ts",
-	"EndScene.ts",
+	"BitmapMenuItem.ts",
+	"ItemView.ts",
 	"Main.ts",
 	"entity/Player.ts",
-	"entity/Road.ts",
-	"BitmapMenuItem.ts",
+	"EndSceneLayer.ts",
 	"GameScene.ts",
+	"RankScene.ts",
+	"EndScene.ts",
 	"LoadingUI.ts",
+	"entity/Road.ts",
 	"util/Global.ts"
 ]

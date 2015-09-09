@@ -32,6 +32,14 @@ class BitmapMenuItem extends egret.Sprite {
         this.addEventListener(egret.TouchEvent.TOUCH_END, this.onTapEnd, this, false);
     }
 
+    set width(newWidth:number) {
+        this.menuItemBitmap.width = newWidth;
+    }
+
+    set height(newHeight:number) {
+        this.menuItemBitmap.height = newHeight;
+    }
+
     private onTapBegin(event:egret.TouchEvent) {
         this.menuItemBitmap.scaleX = this.menuItemBitmap.scaleY = 0.9;
     }

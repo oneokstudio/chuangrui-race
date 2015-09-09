@@ -20,11 +20,9 @@ class ObjectPool {
         var arr = this._pool[key];
         if (arr != null && arr.length) {
             result = arr.shift();
-            console.log("reuse a " + classFactory.key);
         } else {
             result = new classFactory();
             result.key = key;
-            console.log("create a " + result.key);
         }
         result.onCreate(x, y);
         this._list.push(result);
@@ -42,6 +40,11 @@ class ObjectPool {
         if (index != -1) {
             this._list.splice(index, 1);
         }
+    }
+
+    public clearPool() {
+        this._list = null;
+        this._list = [];
     }
 
     private static instance:ObjectPool;

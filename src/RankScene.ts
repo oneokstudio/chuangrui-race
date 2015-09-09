@@ -24,7 +24,7 @@ class RankScene extends egret.Sprite {
         }
 
         this.scrollView.width = this.width;
-        this.scrollView.height = 300;
+        this.scrollView.height = this.height;
         this.scrollView.setContent(this.itemContainer);
         this.addChild(this.scrollView);
     }
