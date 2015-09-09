@@ -38,11 +38,11 @@ class NoticeScene extends egret.DisplayObjectContainer {
 
         //开始游戏按钮
         var startMenuItem:BitmapMenuItem = new BitmapMenuItem("startMenu", "ImageSheet.startButton", this.onMenuItemClick, this);
-        this.addChild(startMenuItem);
         startMenuItem.scaleX = 0.5;
         startMenuItem.scaleY = 0.5;
-        startMenuItem.x = this.stageW - 50 - startMenuItem.width * startMenuItem.scaleX * 0.5;
+        startMenuItem.x = this.stageW - 170;
         startMenuItem.y = this.stageH - 100;
+        this.addChild(startMenuItem);
     }
 
     private onMenuItemClick(name:string) {
