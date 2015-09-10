@@ -8,6 +8,7 @@ module Entity {
         private rightBound:number;
         private carBitmap:egret.Bitmap;
         private UIScene:UIScene;
+        private _poolList:Array<egret.TextField>;
 
         private crashSound:egret.Sound;
         private heatSound:egret.Sound;
@@ -25,6 +26,7 @@ module Entity {
             this.hitSound = RES.getRes("hit-m");
 
             this.carBitmap = new egret.Bitmap();
+            this._poolList = [];
             this.createCar();
         }
 
@@ -34,6 +36,29 @@ module Entity {
             this.addChild(this.carBitmap);
 
             this.anchorX = this.anchorY = 0.5;
+        }
+
+        public createTextField():egret.TextField {
+            var textField = this._poolList.shift();
+            if(textField == null)
+                textField = new egret.TextField();
+            return this.initTextField(textField);
+        }
+
+        public destroyTextField(textField:egret.TextField) {
+            egret.MainContext.instance.stage.removeChild(textField);
+            this._poolList.push(textField);
+        }
+
+        private initTextField(textField:egret.TextField):egret.TextField {
+            textField.text = "-50";
+            textField.textColor = 0xff0000;
+            textField.textAlign = "center";
+            textField.anchorX = textField.anchorY = 0.5;
+            textField.size = 60;
+            textField.x = this.x;
+            textField.y = this.y;
+            return textField;
         }
 
         public updatePosition(advancedTime:number) {
@@ -88,6 +113,7 @@ module Entity {
                 this.crashSound.play();
             }
             egret.Tween.get(this.parent.parent).to({x : -10}, 50).to({x : 10}, 100).to({x : 0}, 50);
+            this.deduct();
         }
 
         /**
@@ -98,6 +124,7 @@ module Entity {
                 this.heatSound.play();
             }
             egret.Tween.get(this).to({alpha : 0.5}, 100).to({alpha : 1}, 100).to({alpha : 0.5}, 100).to({alpha : 1}, 100);
+            this.deduct();
         }
 
         /**
@@ -108,6 +135,16 @@ module Entity {
                 this.crashSound.play();
             }
             egret.Tween.get(this).to({rotation : 360}, 1000);
+            this.deduct();
+        }
+
+        /**
+         * 执行减分效果
+         */
+        private deduct() {
+            var textField = this.createTextField();
+            egret.MainContext.instance.stage.addChild(textField);
+            egret.Tween.get(textField).to({x : this.x + 100, y : this.y - 80}, 500).call(this.destroyTextField, this, [textField]);
         }
     }
 }
