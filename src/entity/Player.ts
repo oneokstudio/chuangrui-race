@@ -30,7 +30,7 @@ module Entity {
 
         private createCar() {
             this.carBitmap.texture = RES.getRes("ImageSheet.car");
-            this.carBitmap.y = -100;
+            //this.carBitmap.y = -100;
             this.addChild(this.carBitmap);
 
             this.anchorX = this.anchorY = 0.5;

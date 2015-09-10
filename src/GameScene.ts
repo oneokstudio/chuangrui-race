@@ -43,7 +43,7 @@ class GameScene extends egret.DisplayObjectContainer {
         this.PlayScene.addChild(this.player);
         this.player.anchorX = this.player.anchorY = 0.5;
         this.player.x = this.stageW / 2;
-        this.player.y = this.stageH - 300;
+        this.player.y = this.stageH - 400;
 
         this.addChild(this.PlayScene);
         this.game.obstacleManager.setScene(this.PlayScene);
