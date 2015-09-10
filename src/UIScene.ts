@@ -11,6 +11,7 @@ class UIScene extends egret.DisplayObjectContainer {
     private leftButton:egret.Bitmap;
     private rightButton:egret.Bitmap;
     private wingPanel:egret.Bitmap;
+    private fbBitmap:egret.Bitmap;
 
     constructor() {
         super();
@@ -22,6 +23,7 @@ class UIScene extends egret.DisplayObjectContainer {
         this.leftButton = new egret.Bitmap();
         this.rightButton = new egret.Bitmap();
         this.wingPanel = new egret.Bitmap();
+        this.fbBitmap = new egret.Bitmap();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.createUI, this);
     }
 
@@ -29,11 +31,19 @@ class UIScene extends egret.DisplayObjectContainer {
         var stageW = egret.MainContext.instance.stage.stageWidth;
         var stageH = egret.MainContext.instance.stage.stageHeight;
 
+        //赛车手头像
+        this.fbBitmap.texture = RES.getRes("ImageSheet.fbButton");
+        this.fbBitmap.x  = this.fbBitmap.y = 10;
+        this.fbBitmap.width = this.fbBitmap.height = 120;
+        this.addChild(this.fbBitmap);
+
         //时间面板
         this.timeField.text = "时间:";
         this.timeField.textColor = 0xef8500;
         this.timeField.size = 40;
-        this.timeField.x = this.timeField.y = 10;
+        this.timeField.x = stageW / 2;
+        this.timeField.y = 10;
+        this.timeField.anchorX = 0.5;
         this.addChild(this.timeField);
 
         //分数面板

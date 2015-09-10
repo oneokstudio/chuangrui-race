@@ -13,8 +13,8 @@ module Entity {
             this.bgBitmap.texture = RES.getRes("ImageSheet.shake");
             this.addChild(this.bgBitmap);
             this.anchorX = this.anchorY = 0.5;
-            //障碍物大小调整为80%
-            this.scaleX = this.scaleY = 0.8;
+            //障碍物大小调整为60%
+            this.scaleX = this.scaleY = 0.6;
         }
 
         public onOverlapping():string {

@@ -23,9 +23,13 @@ module Controller {
             this.obstacleBounds.x += obstacle.x;
             this.obstacleBounds.y += obstacle.y;
 
-            //障碍物大小调整为80%
-            this.obstacleBounds.width *= 0.8;
-            this.obstacleBounds.height *= 0.8;
+            //障碍物大小调整为60%
+            this.obstacleBounds.width *= 0.6;
+            this.obstacleBounds.height *= 0.6;
+
+            //大小调整为80%
+            this.playerBounds.width *= 0.8;
+            this.playerBounds.height *= 0.8;
 
             this.playerBounds.x += player.x;
             this.playerBounds.y += player.y;

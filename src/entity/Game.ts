@@ -34,7 +34,7 @@ module Entity {
             }
             this.score = 0;
             this.state = true;
-            this.time = 120;
+            this.time = 60;
             this.obstacleSpeed = 0.65;
             this.timer.start();
         }

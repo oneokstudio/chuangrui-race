@@ -8,7 +8,7 @@
     {
       "name": "road",
       "type": "image",
-      "url": "assets/road.jpg"
+      "url": "assets/road.png"
     },
     {
       "name": "noticeBg",
@@ -19,6 +19,11 @@
       "name": "ImageSheet",
       "type": "sheet",
       "url": "assets/ImageSheet.json"
+    },
+    {
+      "name": "te",
+      "type": "image",
+      "url": "assets/TE.png"
     },
     {
       "name": "wing",
@@ -59,7 +64,7 @@
   "groups": [
     {
       "name": "preload",
-      "keys": "bgImage, ImageSheet, road, noticeBg, wing, rank, bg-m, gaming-m, crash-m, heat-m, hit-m"
+      "keys": "bgImage, ImageSheet, road, noticeBg, wing, rank, bg-m, gaming-m, crash-m, heat-m, hit-m, te"
     }
   ]
 }
