@@ -33,7 +33,9 @@ class EndSceneLayer extends egret.DisplayObjectContainer {
         textField.width = 360;
 
         var button = new BitmapMenuItem("fight", "ImageSheet.fbButton", function() {
-            window.open("http://fanboost.fiaformulae.com/cn.aspx");
+            if (GlobalData.fanboostStart) {
+                window.open("http://fanboost.fiaformulae.com/cn.aspx");
+            }
         }, this);
         button.width =  button.height = 160;
         button.x = 200;

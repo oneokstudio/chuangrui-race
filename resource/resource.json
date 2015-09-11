@@ -61,6 +61,11 @@
       "name": "hit-m"
     },
     {
+      "url": "sound/overload.mp3",
+      "type": "sound",
+      "name": "overload-m"
+    },
+    {
       "url": "assets/wx.png",
       "type": "image",
       "name": "wx"
@@ -74,7 +79,7 @@
   "groups": [
     {
       "name": "preload",
-      "keys": "bgImage, ImageSheet, road, noticeBg, wing, rank, bg-m, gaming-m, crash-m, heat-m, hit-m, te, face, wx"
+      "keys": "bgImage, ImageSheet, road, noticeBg, wing, rank, bg-m, gaming-m, overload-m, crash-m, heat-m, hit-m, te, face, wx"
     }
   ]
 }

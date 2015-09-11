@@ -13,6 +13,7 @@ module Entity {
         private crashSound:egret.Sound;
         private heatSound:egret.Sound;
         private hitSound:egret.Sound;
+        private overloadSound:egret.Sound;
 
         constructor(left?:number, right?:number) {
             super();
@@ -24,6 +25,7 @@ module Entity {
             this.crashSound = RES.getRes("crash-m");
             this.heatSound = RES.getRes("heat-m");
             this.hitSound = RES.getRes("hit-m");
+            this.overloadSound = RES.getRes("overload-m");
 
             this.carBitmap = new egret.Bitmap();
             this._poolList = [];
@@ -135,7 +137,7 @@ module Entity {
          */
         private rotate() {
             if (GlobalData.music) {
-                this.crashSound.play();
+                this.overloadSound.play();
             }
             egret.Tween.get(this).to({rotation : 360}, 1000);
             this.flow(0);
