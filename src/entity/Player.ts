@@ -25,6 +25,7 @@ module Entity {
             this.crashSound = RES.getRes("crash-m");
             this.heatSound = RES.getRes("heat-m");
             this.hitSound = RES.getRes("hit-m");
+            this.hitSound.setVolume(0.6);
             this.overloadSound = RES.getRes("overload-m");
 
             this.carBitmap = new egret.Bitmap();
