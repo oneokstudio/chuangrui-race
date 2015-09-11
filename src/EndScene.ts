@@ -54,7 +54,7 @@ class EndScene extends egret.DisplayObjectContainer {
         //白色底板
         var bgShape = new egret.Shape();
         bgShape.graphics.beginFill(0xffffff, 0.8);
-        bgShape.graphics.drawRect(0, 0, 580, 150);
+        bgShape.graphics.drawRect(0, 0, 580, 90);
         bgShape.graphics.endFill();
         bgShape.anchorX = 0.5;
         bgShape.x = this.stageW / 2;
@@ -62,10 +62,9 @@ class EndScene extends egret.DisplayObjectContainer {
         this.addChild(bgShape);
 
         //黑字说明文字
-        this.textField.size = 30;
+        this.textField.size = 20;
         this.textField.textColor = 0x000000;
-        this.textField.text ="截至至10月17日0:00，最终排名前20名选手获得小米手环一只，排名前100名选手获得车队帽子一顶。" +
-            "请关注TE 微信的中奖信息，为FanBoosts加油！";
+        this.textField.text ="截至10月23日23:59，最终排名前20位的选手将获得小米手环一只，排名前100位的选手将获得车队帽子一顶。中奖信息及奖品领取，敬请关注“TE连动”微信进行查询。";
         this.textField.width = 560;
         this.textField.anchorX = 0.5;
         this.textField.lineSpacing = 5;
@@ -88,15 +87,15 @@ class EndScene extends egret.DisplayObjectContainer {
         this.reButton = new BitmapMenuItem("reButton", "ImageSheet.restartButton", this.onButtonClicked, this);
         this.wxButton.width = this.wxButton.height = 120;
         this.wxButton.x = 145;
-        this.wxButton.y = 860;
+        this.wxButton.y = 810;
         this.addChild(this.wxButton);
         this.fbButton.width = this.fbButton.height = 120;
         this.fbButton.x = 320;
-        this.fbButton.y = 860;
+        this.fbButton.y = 810;
         this.addChild(this.fbButton);
         this.reButton.width = this.reButton.height = 120;
         this.reButton.x = 495;
-        this.reButton.y = 860;
+        this.reButton.y = 810;
         this.addChild(this.reButton);
 
         //底部label
@@ -106,7 +105,7 @@ class EndScene extends egret.DisplayObjectContainer {
         textField1.text ="分享到朋友圈";
         textField1.anchorX = 0.5;
         textField1.x = 145;
-        textField1.y = 930;
+        textField1.y = 880;
         this.addChild(textField1);
 
         var textField2 = new egret.TextField();
@@ -117,7 +116,7 @@ class EndScene extends egret.DisplayObjectContainer {
         textField2.width = 120;
         textField2.anchorX = 0.5;
         textField2.x = 320;
-        textField2.y = 930;
+        textField2.y = 880;
         this.addChild(textField2);
 
         var textField3 = new egret.TextField();
@@ -126,7 +125,7 @@ class EndScene extends egret.DisplayObjectContainer {
         textField3.text ="重新游戏";
         textField3.anchorX = 0.5;
         textField3.x = 495;
-        textField3.y = 930;
+        textField3.y = 880;
         this.addChild(textField3);
     }
 

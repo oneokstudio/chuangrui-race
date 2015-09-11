@@ -17,18 +17,18 @@ class ItemView extends egret.DisplayObjectContainer {
         var nameLabel:egret.TextField = new egret.TextField();
         nameLabel.text = this.nameStr;
         nameLabel.width = this.width - 30;
-        nameLabel.height = 80;
-        nameLabel.size = 38;
-        nameLabel.x = 30;
+        nameLabel.height = 30;
+        nameLabel.size = 20;
+        nameLabel.x = 80;
         nameLabel.textAlign = "left";
 
         var scoreLabel:egret.TextField = new egret.TextField();
         scoreLabel.text = this.scoreStr.toString();
-        scoreLabel.height = 80;
+        scoreLabel.height = 30;
         scoreLabel.width = this.width - 30;
-        scoreLabel.size = 38;
+        scoreLabel.size = 20;
         scoreLabel.anchorX = 1;
-        scoreLabel.x = this.width - 30;
+        scoreLabel.x = this.width - 80;
         scoreLabel.textAlign = "right";
 
         this.addChild(nameLabel);

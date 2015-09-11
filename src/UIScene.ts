@@ -31,14 +31,20 @@ class UIScene extends egret.DisplayObjectContainer {
         var stageW = egret.MainContext.instance.stage.stageWidth;
         var stageH = egret.MainContext.instance.stage.stageHeight;
 
+        var shape = new egret.Shape();
+        shape.graphics.beginFill(0xe98300, 0.4);
+        shape.graphics.drawRect(0, 0, stageW, 60);
+        shape.graphics.endFill();
+        this.addChild(shape);
+
         //赛车手头像
-        this.fbBitmap.texture = RES.getRes("ImageSheet.fbButton");
+        this.fbBitmap.texture = RES.getRes("face");
         this.fbBitmap.x  = this.fbBitmap.y = 10;
-        this.fbBitmap.width = this.fbBitmap.height = 120;
+        this.fbBitmap.width = this.fbBitmap.height = 100;
         this.addChild(this.fbBitmap);
 
         //时间面板
-        this.timeField.text = "时间:";
+        this.timeField.text = "剩余时间:";
         this.timeField.textColor = 0xef8500;
         this.timeField.size = 40;
         this.timeField.x = stageW / 2;
