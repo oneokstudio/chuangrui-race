@@ -251,8 +251,6 @@ class Wechat
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode($tmpArr);
         $tmpStr = sha1($tmpStr);
-        $file = 'log.log';
-        file_put_contents($file, "$tmpStr, $signature\n", FILE_APPEND);
 
         if ($tmpStr == $signature) {
             return true;
