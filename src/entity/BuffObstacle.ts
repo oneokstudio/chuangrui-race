@@ -10,9 +10,11 @@ module Entity {
         }
 
         public createShape() {
-            this.bgBitmap.texture = RES.getRes("ImageSheet.buff");
+            this.bgBitmap.texture = RES.getRes("te");
             this.addChild(this.bgBitmap);
             this.anchorX = this.anchorY = 0.5;
+            //障碍物大小调整为60%
+            this.scaleX = this.scaleY = 0.6;
         }
 
         public onDestroy() {
