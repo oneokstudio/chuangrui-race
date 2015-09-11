@@ -82,7 +82,7 @@ class EndScene extends egret.DisplayObjectContainer {
         this.addChild(rankScene);
 
         //底部button
-        this.wxButton = new BitmapMenuItem("wxButton", "ImageSheet.wxButton", this.onButtonClicked, this);
+        this.wxButton = new BitmapMenuItem("wxButton", "wx", this.onButtonClicked, this);
         this.fbButton = new BitmapMenuItem("fbButton", "ImageSheet.fbButton", this.onButtonClicked, this);
         this.reButton = new BitmapMenuItem("reButton", "ImageSheet.restartButton", this.onButtonClicked, this);
         this.wxButton.width = this.wxButton.height = 120;
