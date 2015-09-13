@@ -20,7 +20,7 @@ if ($accessRtn = $we->getOauthAccessToken()) {
         try {
             $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $stmt = $db->prepare("replace into users(openid, nickname, sex, headurlimg) values(:openid, :nickname, :sex, :headurlimg)");
+            $stmt = $db->prepare("replace into users(openid, nickname, sex, headimgurl) values(:openid, :nickname, :sex, :headimgurl)");
 
             $stmt->bindParam(':openid', $userInfo['openid'], PDO::PARAM_STR);
             $stmt->bindParam(':nickname', $userInfo['nickname'], PDO::PARAM_STR);
