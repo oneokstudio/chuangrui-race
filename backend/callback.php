@@ -42,6 +42,7 @@ if ($accessRtn = $we->getOauthAccessToken()) {
         echo json_encode(['code' => '401', 'msg' => '获取用户信息失败']);
     }
 } else {
+    file_put_contents($file, "fuck end\n", FILE_APPEND);
     echo json_encode(['code' => '401', 'msg' => '获取token失败']);
 }
 
