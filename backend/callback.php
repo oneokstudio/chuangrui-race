@@ -16,7 +16,9 @@ $opt = array(
 
 $we = new Wechat($opt);
 if ($accessRtn = $we->getOauthAccessToken()) {
+    echo $accessRtn;
     if ($userInfo = $we->getOauthUserinfo($accessRtn['access_token'], $accessRtn['openid'])) {
+        print_r($userInfo);
         try {
             $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
