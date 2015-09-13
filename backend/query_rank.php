@@ -6,11 +6,13 @@
  * Time: 上午11:55
  */
 
+
 if (isset($_GET['openid'])) {
     try {
         $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $stmt = $db->prepare("select openid, score from scores order by score desc limit 50");
+        $stmt = $db->prepare("select scores.openid, scores.score, users.nickname, users.headimgurl
+                              from scores, users where scores.openid = users.openid order by scores.score desc limit 50");
         $stmt->execute();
         $db = null;
 

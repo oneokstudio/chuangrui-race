@@ -24,6 +24,7 @@ if (isset($_POST['openid']) && isset($_POST['score'])) {
             $stmt->bindParam(':ctime', time(), PDO::PARAM_INT);
             $stmt->execute();
             $db = null;
+            echo json_encode(['code' => '200', 'msg' => '提交成功']);
         } else {
             $db = null;
             echo json_encode(['code' => '400', 'msg' => '未找到该玩家信息']);
