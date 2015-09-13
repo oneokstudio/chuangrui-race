@@ -15,10 +15,11 @@ $opt = array(
 );
 
 $we = new Wechat($opt);
+$file = 'test.log';
 if ($accessRtn = $we->getOauthAccessToken()) {
-    echo $accessRtn;
+    file_put_contents($file, "fuck begin\n", FILE_APPEND);
     if ($userInfo = $we->getOauthUserinfo($accessRtn['access_token'], $accessRtn['openid'])) {
-        print_r($userInfo);
+        file_put_contents($file, "shit begin\n", FILE_APPEND);
         try {
             $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
