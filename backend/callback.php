@@ -16,9 +16,14 @@ $opt = array(
 );
 
 $we = new Wechat($opt);
-if ($accessRtn = $we->getOauthAccessToken()) {
-    if ($userInfo = $we->getOauthUserinfo($accessRtn['access_token'], $accessRtn['openid'])) {
-        echo "success";
+$accessRtn = $we->getOauthAccessToken();
+if (is_array($accessRtn))
+    print_r($accessRtn);
+else
+    echo $accessRtn;
+
+//if ($accessRtn = $we->getOauthAccessToken()) {
+//    if ($userInfo = $we->getOauthUserinfo($accessRtn['access_token'], $accessRtn['openid'])) {
 //        try {
 //            $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
 //            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -37,13 +42,11 @@ if ($accessRtn = $we->getOauthAccessToken()) {
 //            echo json_encode(['code' => '500', 'msg' => '服务器繁忙，请稍后重试']);
 //            die();
 //        }
-    } else {
-        echo "fail1";
+//    } else {
 //        echo json_encode(['code' => '401', 'msg' => '获取用户信息失败']);
-    }
-} else {
-    echo "fail2";
+//    }
+//} else {
 //    echo json_encode(['code' => '401', 'msg' => '获取token失败']);
-}
+//}
 
 ?>
