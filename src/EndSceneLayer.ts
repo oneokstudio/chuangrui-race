@@ -27,7 +27,12 @@ class EndSceneLayer extends egret.DisplayObjectContainer {
         var textField = new egret.TextField();
         textField.x = 20;
         textField.y = 50;
-        textField.text = "电动方程式锦标赛北京站开赛前，您可以通过Fanboosts投票给最喜爱的车手，帮助他们在正式的比赛中获得额外加速的机会。请点击下面的头像，为TE赞助的Andretti车队的美女车手 Simona 加油吧！";
+        if (GlobalData.fanboostStart) {
+            textField.text = "电动方程式锦标赛北京站开赛前，您可以通过Fanboosts投票给最喜爱的车手，帮助他们在正式的比赛中获得额外加速的机会。请点击下面的头像，为TE赞助的Andretti车队的美女车手 Simona 加油吧！";
+        } else {
+            textField.text = "电动方程式锦标赛北京站开赛前，您可以通过Fanboosts投票给最喜爱的车手，帮助他们在正式的比赛中获得额外加速的机会。";
+        }
+
         textField.textColor = 0x000000;
         textField.lineSpacing = 10;
         textField.width = 400;
@@ -35,6 +40,8 @@ class EndSceneLayer extends egret.DisplayObjectContainer {
         var button = new BitmapMenuItem("fight", "ImageSheet.fbButton", function() {
             if (GlobalData.fanboostStart) {
                 window.open("http://fanboost.fiaformulae.com/cn.aspx");
+            } else {
+                this.parent.removeChild(this);
             }
         }, this);
         button.width =  button.height = 160;
