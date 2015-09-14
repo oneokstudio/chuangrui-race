@@ -2356,9 +2356,12 @@ class Wechat
      */
     public function getOauthAccessToken()
     {
+        $file = 'test.log';
         $code = isset($_GET['code']) ? $_GET['code'] : '';
+        file_put_contents($file, "code=$code", FILE_APPEND);
         if (!$code) return false;
         $result = $this->http_get(self::API_BASE_URL_PREFIX . self::OAUTH_TOKEN_URL . 'appid=' . $this->appid . '&secret=' . $this->appsecret . '&code=' . $code . '&grant_type=authorization_code');
+        file_put_contents($file, "result = $result", FILE_APPEND);
         if ($result) {
             $json = json_decode($result, true);
             if (!$json || !empty($json['errcode'])) {
