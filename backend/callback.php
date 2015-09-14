@@ -16,15 +16,9 @@ $opt = array(
 );
 
 $we = new Wechat($opt);
-//$accessRtn = $we->getOauthAccessToken();
-//if (is_array($accessRtn))
-//    print_r($accessRtn);
-//else
-//    echo $accessRtn;
 
 if ($accessRtn = $we->getOauthAccessToken()) {
     if ($userInfo = $we->getOauthUserinfo($accessRtn['access_token'], $accessRtn['openid'])) {
-        file_put_contents('test.log', '\nwrite database', FILE_APPEND);
         try {
             $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -38,9 +32,8 @@ if ($accessRtn = $we->getOauthAccessToken()) {
             $db = null;
 
             setcookie('openid', $userInfo['openid']);
-            header('Localtion: http://studio.windra.in/chuangrui-race/');
+            header('Localtion: http://studio.windra.in/chuangrui-race/release/html5/1441989882/');
         } catch (PDOException $e) {
-            file_put_contents('test.log', '\nwrite fail', FILE_APPEND);
             echo json_encode(['code' => '500', 'msg' => '服务器繁忙，请稍后重试']);
             die();
         }
