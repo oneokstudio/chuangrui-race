@@ -4,6 +4,6 @@
 3. backend/query_rank.php: 查询排行，需要get一个openid过来，成功则返回code=200、rank_list和my_rank三个字段，rank_list是前1到50
    名玩家的信息的关联数组（已序），其中包括openid、score、nickname和headimgurl四个字段，my_rank是用户自己的排名，0表示为上榜，非0则
    表示当前排名
-4. backend/race_share_wx.php: 分享页面，需要前端把里面37行到40行的变量定义成项目所需的内容
+4. backend/race_share_wx.php: 获取分享所需信息的页面，返回一个包含appId、timestamp、nonceStr和signature的json
 
 
