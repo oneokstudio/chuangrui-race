@@ -1,6 +1,6 @@
 <?php
 
-require '../vendor/autoload.php';
+//require_once '../vendor/autoload.php';
 
 /**
  * 微信公众平台PHP-SDK, 官方API部分

@@ -16,37 +16,37 @@ $opt = array(
 );
 
 $we = new Wechat($opt);
-$accessRtn = $we->getOauthAccessToken();
-if (is_array($accessRtn))
-    print_r($accessRtn);
-else
-    echo $accessRtn;
+//$accessRtn = $we->getOauthAccessToken();
+//if (is_array($accessRtn))
+//    print_r($accessRtn);
+//else
+//    echo $accessRtn;
 
-//if ($accessRtn = $we->getOauthAccessToken()) {
-//    if ($userInfo = $we->getOauthUserinfo($accessRtn['access_token'], $accessRtn['openid'])) {
-//        try {
-//            $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
-//            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-//            $stmt = $db->prepare("replace into users(openid, nickname, sex, headimgurl) values(:openid, :nickname, :sex, :headimgurl)");
-//
-//            $stmt->bindParam(':openid', $userInfo['openid'], PDO::PARAM_STR);
-//            $stmt->bindParam(':nickname', $userInfo['nickname'], PDO::PARAM_STR);
-//            $stmt->bindParam(':sex', $userInfo['sex'], PDO::PARAM_INT);
-//            $stmt->bindParam(':headimgurl', $userInfo['headimgurl'], PDO::PARAM_STR);
-//            $stmt->execute();
-//            $db = null;
-//
-//            setcookie('openid', $userInfo['openid']);
-//            header('Localtion: http://studio.windra.in/chuangrui-race/');
-//        } catch (PDOException $e) {
-//            echo json_encode(['code' => '500', 'msg' => '服务器繁忙，请稍后重试']);
-//            die();
-//        }
-//    } else {
-//        echo json_encode(['code' => '401', 'msg' => '获取用户信息失败']);
-//    }
-//} else {
-//    echo json_encode(['code' => '401', 'msg' => '获取token失败']);
-//}
+if ($accessRtn = $we->getOauthAccessToken()) {
+    if ($userInfo = $we->getOauthUserinfo($accessRtn['access_token'], $accessRtn['openid'])) {
+        try {
+            $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $stmt = $db->prepare("replace into users(openid, nickname, sex, headimgurl) values(:openid, :nickname, :sex, :headimgurl)");
+
+            $stmt->bindParam(':openid', $userInfo['openid'], PDO::PARAM_STR);
+            $stmt->bindParam(':nickname', $userInfo['nickname'], PDO::PARAM_STR);
+            $stmt->bindParam(':sex', $userInfo['sex'], PDO::PARAM_INT);
+            $stmt->bindParam(':headimgurl', $userInfo['headimgurl'], PDO::PARAM_STR);
+            $stmt->execute();
+            $db = null;
+
+            setcookie('openid', $userInfo['openid']);
+            header('Localtion: http://studio.windra.in/chuangrui-race/');
+        } catch (PDOException $e) {
+            echo json_encode(['code' => '500', 'msg' => '服务器繁忙，请稍后重试']);
+            die();
+        }
+    } else {
+        echo json_encode(['code' => '401', 'msg' => '获取用户信息失败']);
+    }
+} else {
+    echo json_encode(['code' => '401', 'msg' => '获取token失败']);
+}
 
 ?>
