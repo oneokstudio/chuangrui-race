@@ -2403,7 +2403,6 @@ class Wechat
     public function getOauthUserinfo($access_token, $openid)
     {
         $result = $this->http_get(self::API_BASE_URL_PREFIX . self::OAUTH_USERINFO_URL . 'access_token=' . $access_token . '&openid=' . $openid);
-        file_put_contents('test.log', "\nresult = $result", FILE_APPEND);
         if ($result) {
             $json = json_decode($result, true);
             if (!$json || !empty($json['errcode'])) {
