@@ -30,7 +30,7 @@ class EndSceneLayer extends egret.DisplayObjectContainer {
         textField.text = "电动方程式锦标赛北京站开赛前，您可以通过Fanboosts投票给最喜爱的车手，帮助他们在正式的比赛中获得额外加速的机会。请点击下面的头像，为TE赞助的Andretti车队的美女车手 Simona 加油吧！";
         textField.textColor = 0x000000;
         textField.lineSpacing = 10;
-        textField.width = 360;
+        textField.width = 400;
 
         var button = new BitmapMenuItem("fight", "ImageSheet.fbButton", function() {
             if (GlobalData.fanboostStart) {
@@ -43,7 +43,7 @@ class EndSceneLayer extends egret.DisplayObjectContainer {
 
         var shape = new egret.Shape();
         shape.graphics.beginFill(0xBFCFFE, 0.8);
-        shape.graphics.drawRoundRect(0, 0, 400, textField.measuredHeight + 240, 60, 60);
+        shape.graphics.drawRoundRect(0, 0, 430, textField.measuredHeight + 240, 60, 60);
         shape.graphics.endFill();
         this.addChild(shape);
         this.addChild(closeButton);

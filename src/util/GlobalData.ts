@@ -5,7 +5,7 @@
 module GlobalData {
     /*********************分数全局变量**********************/
     //音乐开关
-    export var music:boolean = true;
+    export var music:boolean = false;
     //fanboost开关
     export var fanboostStart:boolean = false;
 
