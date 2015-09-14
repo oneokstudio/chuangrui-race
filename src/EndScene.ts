@@ -13,6 +13,7 @@ class EndScene extends egret.DisplayObjectContainer {
     private textField:egret.TextField;
     private parentScene:GameScene;
     private endSceneLayer:EndSceneLayer;
+    private adSceneLayer:AdSceneLayer;
 
     constructor() {
         super();
@@ -21,6 +22,7 @@ class EndScene extends egret.DisplayObjectContainer {
         this.rankBg = new egret.Bitmap();
         this.textField = new egret.TextField();
         this.endSceneLayer = EndSceneLayer.getInstance();
+        this.adSceneLayer = AdSceneLayer.getInstance();
         this.stageH = egret.MainContext.instance.stage.stageHeight;
         this.stageW = egret.MainContext.instance.stage.stageWidth;
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.createScene, this);
@@ -127,6 +129,8 @@ class EndScene extends egret.DisplayObjectContainer {
         textField3.x = 495;
         textField3.y = 880;
         this.addChild(textField3);
+
+        this.addChild(this.adSceneLayer);
     }
 
     private onButtonClicked(name) {

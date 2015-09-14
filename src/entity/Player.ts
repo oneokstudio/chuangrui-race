@@ -25,7 +25,7 @@ module Entity {
             this.crashSound = RES.getRes("crash-m");
             this.heatSound = RES.getRes("heat-m");
             this.hitSound = RES.getRes("hit-m");
-            this.hitSound.setVolume(0.6);
+            this.hitSound.volume = 0.6;
             this.overloadSound = RES.getRes("overload-m");
 
             this.carBitmap = new egret.Bitmap();
@@ -34,7 +34,7 @@ module Entity {
         }
 
         private createCar() {
-            this.carBitmap.texture = RES.getRes("ImageSheet.car");
+            this.carBitmap.texture = RES.getRes("car");
             //this.carBitmap.y = -100;
             this.addChild(this.carBitmap);
 

@@ -29,4 +29,11 @@ module Global {
             window["rootContainer"].x = 0;
         }
     }
+
+    //获取用户信息
+    export function getUserInfo():void {
+        Http.get({}, {}, function () {
+
+        })
+    }
 }
