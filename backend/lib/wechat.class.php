@@ -1,6 +1,6 @@
 <?php
 
-//require_once '../vendor/autoload.php';
+require_once dirname(__FILE__) . '/../vendor/autoload.php';
 
 /**
  * 微信公众平台PHP-SDK, 官方API部分
