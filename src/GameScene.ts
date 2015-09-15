@@ -62,7 +62,7 @@ class GameScene extends egret.DisplayObjectContainer {
             this.player.updatePosition(advancedTime);
             this.UIScene.updateUIText(this.game.score, this.game.time);
             this.game.obstacleManager.updatePool(advancedTime);
-            this.bg.updateBgPosition(advancedTime);
+            //this.bg.updateBgPosition(advancedTime);
             if(this.game.time === 0) {
                 this.game.gameOver();
                 this.removeEventListener(egret.Event.ENTER_FRAME, this.onEnterFrame, this);
