@@ -75,6 +75,17 @@ class Share extends egret.DisplayObjectContainer {
             'onMenuShareWeibo'
         ];
         wx.config(bodyConfig);
+        wx.ready(function() {
+            wx.showOptionMenu({});
+            console.log("ready in");
+            Global.share.toWeiXin(
+                'title',
+                'desc',
+                'link',
+                'imgUrl',
+                0
+            );
+        });
     }
 
     /**
@@ -87,28 +98,24 @@ class Share extends egret.DisplayObjectContainer {
      * @callback        	分享结束的回调
      */
     public toWeiXin(title,desc,link,imgUrl,type:number = 0, callback:Function = null):void {//微信分享
-        wx.ready(function(){
-            wx.showOptionMenu({});
-            var bodyMenuShareTimeline = new BodyMenuShareTimeline();
-            var bodyMenuShareAppMessage = new BodyMenuShareAppMessage();
-            bodyMenuShareAppMessage.title = bodyMenuShareTimeline.title = title;
-            //分享到朋友圈没有详情字段
-            bodyMenuShareAppMessage.desc = desc;
-            bodyMenuShareAppMessage.link = bodyMenuShareTimeline.link = link;
-            bodyMenuShareAppMessage.imgUrl = bodyMenuShareTimeline.imgUrl = imgUrl;
-            if (callback) {
-                bodyMenuShareAppMessage.success = bodyMenuShareTimeline.success = callback;
-            }
+        var bodyMenuShareTimeline = new BodyMenuShareTimeline();
+        var bodyMenuShareAppMessage = new BodyMenuShareAppMessage();
+        bodyMenuShareAppMessage.title = bodyMenuShareTimeline.title = title;
+        //分享到朋友圈没有详情字段
+        bodyMenuShareAppMessage.desc = desc;
+        bodyMenuShareAppMessage.link = bodyMenuShareTimeline.link = link;
+        bodyMenuShareAppMessage.imgUrl = bodyMenuShareTimeline.imgUrl = imgUrl;
+        if (callback) {
+            bodyMenuShareAppMessage.success = bodyMenuShareTimeline.success = callback;
+        }
 
-            if(type == 0){
-                wx.onMenuShareAppMessage(bodyMenuShareAppMessage);
-                wx.onMenuShareTimeline(bodyMenuShareTimeline);
-            }else if(type == 1){
-                wx.onMenuShareAppMessage(bodyMenuShareAppMessage);
-            }else if(type == 2){
-                wx.onMenuShareTimeline(bodyMenuShareTimeline);
-            }
-
-        })
+        if(type == 0){
+            wx.onMenuShareAppMessage(bodyMenuShareAppMessage);
+            wx.onMenuShareTimeline(bodyMenuShareTimeline);
+        }else if(type == 1){
+            wx.onMenuShareAppMessage(bodyMenuShareAppMessage);
+        }else if(type == 2){
+            wx.onMenuShareTimeline(bodyMenuShareTimeline);
+        }
     }
 }
