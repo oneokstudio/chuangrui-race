@@ -31,7 +31,7 @@ if ($accessRtn = $we->getOauthAccessToken()) {
             $stmt->execute();
             $db = null;
 
-            header('Location: http://studio.windra.in/chuangrui-race/release/html5/1442308240/?openid=' . $userInfo['openid']);
+            header('Location: http://studio.windra.in/chuangrui-race/release/html5/1442309535/?openid=' . $userInfo['openid']);
         } catch (PDOException $e) {
             echo json_encode(['code' => '500', 'msg' => '服务器繁忙，请稍后重试']);
             die();
