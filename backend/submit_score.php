@@ -6,7 +6,7 @@
  * Time: 上午11:55
  */
 
-date_default_timezone_set('ETC/GMT-8');
+date_default_timezone_set('Asia/Shanghai');
 
 if (isset($_POST['openid']) && isset($_POST['score'])) {
     try {
