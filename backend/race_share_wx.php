@@ -17,19 +17,23 @@ $opt = array(
     'appsecret' => WxPayConfig::APPSECRET
 );
 
-//JSSDK签名
-$we = new Wechat($opt);
-$auth = $we->checkAuth();
-$js_ticket = $we->getJsTicket();
-if (!$js_ticket) {
-    echo json_encode(['code' => '401', 'msg' => ErrCode::getErrText($we->errCode)]);
-    exit;
+
+if (isset($_GET['url'])) {
+    //JSSDK签名
+    $we = new Wechat($opt);
+    $auth = $we->checkAuth();
+    $js_ticket = $we->getJsTicket();
+    if (!$js_ticket) {
+        echo json_encode(['code' => '401', 'msg' => ErrCode::getErrText($we->errCode)]);
+        exit;
+    }
+//    $url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+    $js_sign = $we->getJsSign($_GET['url']);
+
+    echo json_encode($js_sign);
+} else {
+    echo json_encode(['code' => '400', 'msg' => '请求非法']);
 }
-$url = 'http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-$js_sign = $we->getJsSign($url);
-
-echo json_encode($js_sign);
-
 
 
 ?>
