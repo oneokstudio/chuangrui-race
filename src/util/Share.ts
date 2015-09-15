@@ -27,7 +27,7 @@ class Share extends egret.DisplayObjectContainer {
         this.signUrl = 'http://studio.windra.in/chuangrui-race/backend/race_share_wx.php';
 
         var ua = navigator.userAgent.toLowerCase();
-        if (/(micromessage)/i.test(ua)) {
+        if (/(micromessenger)/i.test(ua)) {
             this.os = 'wx';
         } else if (/(iphone|ipod|ipad)/i.test(ua)) {
             this.os = 'ios';
@@ -47,8 +47,9 @@ class Share extends egret.DisplayObjectContainer {
     private getSignPackage() {
         var urlloader = new egret.URLLoader();
         var req = new egret.URLRequest(this.signUrl);
-        urlloader.load(req);
         req.method = egret.URLRequestMethod.GET;
+        req.data = new egret.URLVariables("url=" + location.href);
+        urlloader.load(req);
         console.log('getSignPackage');
         urlloader.addEventListener(egret.Event.COMPLETE, (e)=> {
             this.signPackage = <SignPackage>JSON.parse(e.target.data);
