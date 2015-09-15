@@ -1181,7 +1181,9 @@ class Wechat
      */
     protected function setCache($cachename, $value, $expired)
     {
+        echo "cachename = $cachename, value = $value， expired = $expired";
         $client = new Predis\Client();
+        //file_put_contents("test", "cachename = $cachename, value = $value， expired = $expired", FILE_APPEND);
         $client->set($cachename, $value, $expired);
         return true;
     }
@@ -1243,6 +1245,7 @@ class Wechat
             }
             $this->access_token = $json['access_token'];
             $expire = $json['expires_in'] ? intval($json['expires_in']) - 100 : 3600;
+            print_r($json);
             $this->setCache($authname, $this->access_token, $expire);
             return $this->access_token;
         }
