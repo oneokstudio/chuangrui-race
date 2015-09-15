@@ -7,18 +7,16 @@
  */
 
 
-echo "hello world!\n";
+require_once "backend/lib/WxPay.Config.php";
+require_once "backend/lib/wechat.class.php";
 
-//require_once "backend/lib/WxPay.Config.php";
-//require_once "backend/lib/wechat.class.php";
-//
-//
-//$opt = array(
-//    'appid' => WxPayConfig::APPID,    //填写高级调用功能的appid
-//    'appsecret' => WxPayConfig::APPSECRET //填写高级调用功能的密钥
-//);
-//
-//$we = new Wechat($opt);
-//$redirectUrl = $we->getOauthRedirect("/backend/callback.php");
-//
-//header($redirectUrl);
+
+$opt = array(
+    'appid' => WxPayConfig::APPID,    //填写高级调用功能的appid
+    'appsecret' => WxPayConfig::APPSECRET //填写高级调用功能的密钥
+);
+
+$we = new Wechat($opt);
+$redirectUrl = $we->getOauthRedirect("/backend/callback.php");
+
+http_redirect($redirectUrl);
