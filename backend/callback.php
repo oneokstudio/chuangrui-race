@@ -32,7 +32,7 @@ if ($accessRtn = $we->getOauthAccessToken()) {
             $db = null;
 
             setcookie('openid', $userInfo['openid']);
-            header('Location: http://studio.windra.in/chuangrui-race/release/html5/1442287013/');
+            header('Location: http://studio.windra.in/chuangrui-race/release/html5/1442288314/');
         } catch (PDOException $e) {
             echo json_encode(['code' => '500', 'msg' => '服务器繁忙，请稍后重试']);
             die();
