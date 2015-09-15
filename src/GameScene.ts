@@ -69,7 +69,16 @@ class GameScene extends egret.DisplayObjectContainer {
                 this.game.gameOver();
                 this.removeEventListener(egret.Event.ENTER_FRAME, this.onEnterFrame, this);
                 _hmt.push(["_trackEvent", "game", "state", "over"]);
-                //this.addChild(this.adSceneLayer);
+
+
+                Global.share.toWeiXin(
+                    '我在 TE 赛车游戏里跑出了' + this.game.score + '分的成绩！敢来挑战吗？',
+                    '丰富奖品等你来~',
+                    'http://studio.windra.in/chuangrui-race/',
+                    'imgUrl',
+                    0
+                );
+
                 var me = this;
                 Http.post("http://studio.windra.in/chuangrui-race/backend/submit_score.php",
                     "openid=" + location.search.substring(8) +
