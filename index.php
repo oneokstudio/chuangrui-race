@@ -19,4 +19,5 @@ $opt = array(
 $we = new Wechat($opt);
 $redirectUrl = $we->getOauthRedirect("/backend/callback.php");
 
-http_redirect($redirectUrl);
+//http_redirect($redirectUrl);
+echo $redirectUrl;
