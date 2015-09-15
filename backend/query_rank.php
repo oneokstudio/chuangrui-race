@@ -8,6 +8,7 @@
 
 
 if (isset($_GET['openid'])) {
+    echo "here\n";
     try {
         $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -17,6 +18,7 @@ if (isset($_GET['openid'])) {
         $db = null;
 
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        print_r($results);
         $flag = 0;
         for ($i = 0; $i < sizeof($results); $i++) {
             if ($results[$i]['openid'] == $_GET['openid']) {
@@ -24,7 +26,8 @@ if (isset($_GET['openid'])) {
                 break;
             }
         }
-        
+
+        echo "flag = $flag\n";
         $return = ['code' => '200', 'rank_list' => $results, 'my_rank' => $flag];
         echo json_encode($return);
     } catch (PDOException $e) {
@@ -32,6 +35,7 @@ if (isset($_GET['openid'])) {
         die();
     }
 } else {
+    echo "shit\n";
     echo json_encode(['code' => '400', 'msg' => '请求不合法']);
 }
 
