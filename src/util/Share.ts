@@ -46,8 +46,9 @@ class Share extends egret.DisplayObjectContainer {
     private getSignPackage() {
         var urlloader = new egret.URLLoader();
         var req = new egret.URLRequest(this.signUrl);
-        urlloader.load(req);
         req.method = egret.URLRequestMethod.GET;
+        req.data = new egret.URLVariables("url=" + location.href);
+        urlloader.load(req);
         console.log('getSignPackage');
         urlloader.addEventListener(egret.Event.COMPLETE, (e)=> {
             this.signPackage = <SignPackage>JSON.parse(e.target.data);
