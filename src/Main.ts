@@ -67,13 +67,6 @@ class Main extends egret.DisplayObjectContainer {
             this.createStartScene();
 
             Global.init();
-            Global.share.toWeiXin(
-                'title',
-                'desc',
-                'link',
-                'imgUrl',
-                0
-            );
             this.bgSound = RES.getRes("bg-m");
             if (GlobalData.music) {
                 this.bgSound.play(true);
