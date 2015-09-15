@@ -26,7 +26,6 @@ if (isset($_GET['openid'])) {
         }
 
         $return = ['code' => '200', 'rank_list' => $results, 'my_rank' => $flag];
-        print_r($return);
         echo json_encode($return);
     } catch (PDOException $e) {
         echo json_encode(['code' => '500', 'msg' => '服务器繁忙，请稍后重试']);
