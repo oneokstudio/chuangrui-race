@@ -37,6 +37,7 @@ class AdSceneLayer extends egret.DisplayObjectContainer {
         //关闭按钮
         this.adButton = new BitmapMenuItem("adButton", "", function () {
             //egret.MainContext.instance.stage.addChild(this.endScene);
+            //TODO:获取排名顺序
             this.parent.removeChild(this);
         }, this);
         this.adButton.width = 290;
