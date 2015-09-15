@@ -24,7 +24,7 @@ class Share extends egret.DisplayObjectContainer {
 
     //初始化
     private  init():void {
-        this.signUrl = 'backend/race_share_wx.php';
+        this.signUrl = 'http://studio.windra.in/chuangrui-race/backend/race_share_wx.php';
 
         var ua = navigator.userAgent.toLowerCase();
         if (/(micromessage)/i.test(ua)) {

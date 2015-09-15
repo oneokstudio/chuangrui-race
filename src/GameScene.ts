@@ -71,7 +71,7 @@ class GameScene extends egret.DisplayObjectContainer {
                 _hmt.push(["_trackEvent", "game", "state", "over"]);
                 //this.addChild(this.adSceneLayer);
                 var me = this;
-                Http.post("backend/submit_score.php",
+                Http.post("http://studio.windra.in/chuangrui-race/backend/submit_score.php",
                     "openid=" + location.search.substring(8) +
                     "&score=" + this.game.score
                 , function(data) {
