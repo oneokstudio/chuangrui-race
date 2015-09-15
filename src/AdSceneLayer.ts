@@ -24,6 +24,10 @@ class AdSceneLayer extends egret.DisplayObjectContainer {
         this.maskLayer.graphics.drawRect(0, 0, this.stageW, this.stageH);
         this.maskLayer.graphics.endFill();
         this.addChild(this.maskLayer);
+        this.maskLayer.touchEnabled = true;
+        this.maskLayer.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onPrevent, this, true);
+        this.maskLayer.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onPrevent, this, true);
+        this.maskLayer.addEventListener(egret.TouchEvent.TOUCH_END, this.onPrevent, this, true);
 
         //TE简介弹框
         this.adBg.texture = RES.getRes("ad");
@@ -37,7 +41,6 @@ class AdSceneLayer extends egret.DisplayObjectContainer {
         //关闭按钮
         this.adButton = new BitmapMenuItem("adButton", "", function () {
             //egret.MainContext.instance.stage.addChild(this.endScene);
-            //TODO:获取排名顺序
             this.parent.removeChild(this);
         }, this);
         this.adButton.width = 290;
@@ -45,6 +48,10 @@ class AdSceneLayer extends egret.DisplayObjectContainer {
         this.adButton.x = this.stageW / 2;
         this.adButton.y = 400;
         this.addChild(this.adButton);
+    }
+
+    private onPrevent(event:egret.TouchEvent) {
+        event.stopPropagation();
     }
 
     public static getInstance():AdSceneLayer {
