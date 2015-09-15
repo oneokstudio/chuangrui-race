@@ -23,7 +23,6 @@ class Main extends egret.DisplayObjectContainer {
     private bgImage:egret.Bitmap;
 
     private bgSound:egret.Sound;
-    private gamingSound:egret.Sound;
 
     public constructor() {
         super();

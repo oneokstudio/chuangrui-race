@@ -1,6 +1,6 @@
 <?php
 
-require '../vendor/autoload.php';
+require_once dirname(__FILE__) . '/../vendor/autoload.php';
 
 /**
  * 微信公众平台PHP-SDK, 官方API部分
@@ -251,8 +251,6 @@ class Wechat
         sort($tmpArr, SORT_STRING);
         $tmpStr = implode($tmpArr);
         $tmpStr = sha1($tmpStr);
-        $file = 'log.log';
-        file_put_contents($file, "$tmpStr, $signature\n", FILE_APPEND);
 
         if ($tmpStr == $signature) {
             return true;
@@ -1184,7 +1182,7 @@ class Wechat
     protected function setCache($cachename, $value, $expired)
     {
         $client = new Predis\Client();
-        $client->set($cachename, $value, $expired);
+        $client->setex($cachename, $expired, $value);
         return true;
     }
 

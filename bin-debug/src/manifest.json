@@ -15,6 +15,8 @@
 	"ItemView.ts",
 	"Main.ts",
 	"entity/Player.ts",
+	"util/Http.ts",
+	"AdSceneLayer.ts",
 	"EndSceneLayer.ts",
 	"GameScene.ts",
 	"RankScene.ts",

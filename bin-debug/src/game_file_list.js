@@ -15,6 +15,8 @@ var game_file_list = [
 	"ItemView.js",
 	"Main.js",
 	"entity/Player.js",
+	"util/Http.js",
+	"AdSceneLayer.js",
 	"EndSceneLayer.js",
 	"GameScene.js",
 	"RankScene.js",

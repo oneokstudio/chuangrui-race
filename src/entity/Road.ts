@@ -34,7 +34,7 @@ module Entity {
         }
 
         public updateBgPosition(advancedTime:number) {
-            this.game.obstacleSpeed = 0.65  + this.game.score * 0.00003;
+            this.game.obstacleSpeed = 0.65  + this.game.score * 0.00006;
             this.y += this.game.obstacleSpeed * advancedTime;
             if(this.y > 0) {
                 this.y = -this.stageH;

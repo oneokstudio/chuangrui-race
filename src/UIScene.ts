@@ -31,14 +31,20 @@ class UIScene extends egret.DisplayObjectContainer {
         var stageW = egret.MainContext.instance.stage.stageWidth;
         var stageH = egret.MainContext.instance.stage.stageHeight;
 
+        var shape = new egret.Shape();
+        shape.graphics.beginFill(0xe98300, 0.4);
+        shape.graphics.drawRect(0, 0, stageW, 60);
+        shape.graphics.endFill();
+        this.addChild(shape);
+
         //赛车手头像
-        this.fbBitmap.texture = RES.getRes("ImageSheet.fbButton");
+        this.fbBitmap.texture = RES.getRes("face");
         this.fbBitmap.x  = this.fbBitmap.y = 10;
-        this.fbBitmap.width = this.fbBitmap.height = 120;
+        this.fbBitmap.width = this.fbBitmap.height = 100;
         this.addChild(this.fbBitmap);
 
         //时间面板
-        this.timeField.text = "时间:";
+        this.timeField.text = "剩余时间:";
         this.timeField.textColor = 0xef8500;
         this.timeField.size = 40;
         this.timeField.x = stageW / 2;
@@ -67,7 +73,7 @@ class UIScene extends egret.DisplayObjectContainer {
         this.leftButton.texture = RES.getRes("ImageSheet.leftButton");
         this.leftButton.x = 70;
         this.leftButton.y = stageH - 60;
-        this.leftButton.scaleX = this.leftButton.scaleY = 1.8;
+        this.leftButton.scaleX = this.leftButton.scaleY = 1.7;
         this.leftButton.anchorX = this.leftButton.anchorY = 0.5;
         this.leftButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onLeftTouchBegin, this);
         this.leftButton.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onLeftTouchEnd, this);
@@ -79,7 +85,7 @@ class UIScene extends egret.DisplayObjectContainer {
         this.rightButton.texture = RES.getRes("ImageSheet.rightButton");
         this.rightButton.x = stageW - 70;
         this.rightButton.y = stageH - 60;
-        this.rightButton.scaleX = this.rightButton.scaleY = 1.8;
+        this.rightButton.scaleX = this.rightButton.scaleY = 1.7;
         this.rightButton.anchorX = this.rightButton.anchorY = 0.5;
         this.rightButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onRightTouchBegin, this);
         this.rightButton.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onRightTouchEnd, this);
@@ -89,7 +95,7 @@ class UIScene extends egret.DisplayObjectContainer {
 
     public updateUIText(score:number, time:number) {
         this.textField.text = score + "";
-        this.timeField.text = "时间:" + time;
+        this.timeField.text = "剩余时间:" + time;
     }
 
     private onLeftTouchBegin(event:egret.TouchEvent) {
@@ -99,7 +105,7 @@ class UIScene extends egret.DisplayObjectContainer {
 
     private onLeftTouchEnd(event:egret.TouchEvent) {
         this.left = false;
-        this.leftButton.scaleX = this.leftButton.scaleY = 1.8;
+        this.leftButton.scaleX = this.leftButton.scaleY = 1.7;
     }
 
     private onRightTouchBegin(event:egret.TouchEvent) {
@@ -109,7 +115,7 @@ class UIScene extends egret.DisplayObjectContainer {
 
     private onRightTouchEnd(event:egret.TouchEvent) {
         this.right = false;
-        this.rightButton.scaleX = this.rightButton.scaleY = 1.8;
+        this.rightButton.scaleX = this.rightButton.scaleY = 1.7;
     }
 
     public static getInstance():UIScene {

@@ -11,7 +11,7 @@ module Entity {
         public time:number;
         public state:boolean;
         public obstacleSpeed:number;
-        public timer:egret.Timer = new egret.Timer(1000, 0);
+        public timer:egret.Timer = new egret.Timer(700, 0);
         public obstacleManager:Controller.ObstacleManager;
 
         constructor() {

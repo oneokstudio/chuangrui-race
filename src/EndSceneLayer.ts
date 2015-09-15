@@ -27,14 +27,22 @@ class EndSceneLayer extends egret.DisplayObjectContainer {
         var textField = new egret.TextField();
         textField.x = 20;
         textField.y = 50;
-        textField.text = "在电动方程式北京站开赛前，车迷可以通过投票给最喜爱的车手，帮助他们在比赛着获得额外加速的机会。" +
-            "请点击图片，为TE 赞助的Andretti 车队的美女车手 Simena 加油吧！";
+        if (GlobalData.fanboostStart) {
+            textField.text = "电动方程式锦标赛北京站开赛前，您可以通过Fanboosts投票给最喜爱的车手，帮助他们在正式的比赛中获得额外加速的机会。请点击下面的头像，为TE赞助的Andretti车队的美女车手 Simona 加油吧！";
+        } else {
+            textField.text = "电动方程式锦标赛北京站开赛前，您可以通过Fanboosts投票给最喜爱的车手，帮助他们在正式的比赛中获得额外加速的机会。";
+        }
+
         textField.textColor = 0x000000;
         textField.lineSpacing = 10;
-        textField.width = 360;
+        textField.width = 400;
 
         var button = new BitmapMenuItem("fight", "ImageSheet.fbButton", function() {
-            window.open("http://fanboost.fiaformulae.com/cn.aspx");
+            if (GlobalData.fanboostStart) {
+                window.open("http://fanboost.fiaformulae.com/cn.aspx");
+            } else {
+                this.parent.removeChild(this);
+            }
         }, this);
         button.width =  button.height = 160;
         button.x = 200;
@@ -42,7 +50,7 @@ class EndSceneLayer extends egret.DisplayObjectContainer {
 
         var shape = new egret.Shape();
         shape.graphics.beginFill(0xBFCFFE, 0.8);
-        shape.graphics.drawRoundRect(0, 0, 400, textField.measuredHeight + 240, 60, 60);
+        shape.graphics.drawRoundRect(0, 0, 430, textField.measuredHeight + 240, 60, 60);
         shape.graphics.endFill();
         this.addChild(shape);
         this.addChild(closeButton);

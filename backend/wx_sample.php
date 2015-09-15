@@ -4,7 +4,7 @@
   */
 
 //define your token
-define("TOKEN", "luojunfeng");
+define("TOKEN", "chuangrui");
 $wechatObj = new wechatCallbackapiTest();
 $wechatObj->valid();
 

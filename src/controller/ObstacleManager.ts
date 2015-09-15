@@ -42,9 +42,9 @@ module Controller {
 
         public produce(type:number) {
             if(type === 0)
-                this.playScene.addChild(this.objectPool.createObject(this.obstacleClass[Math.round(Math.random() * 2)], Math.random() * 392 + 156, -80));
+                this.playScene.addChild(this.objectPool.createObject(this.obstacleClass[Math.round(Math.random() * 2)], Math.random() * 370 + 130, -40));
             else
-                this.playScene.addChild(this.objectPool.createObject(Entity.BuffObstacle, Math.random() * 392 + 156, -80))
+                this.playScene.addChild(this.objectPool.createObject(Entity.BuffObstacle, Math.random() * 370 + 130, -40))
         }
 
         public updatePool(advancedTime: number) {
