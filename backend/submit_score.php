@@ -8,6 +8,7 @@
 
 date_default_timezone_set('Asia/Shanghai');
 
+
 if (isset($_POST['openid']) && isset($_POST['score'])) {
     try {
         $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
@@ -17,12 +18,19 @@ if (isset($_POST['openid']) && isset($_POST['score'])) {
         $stmt->execute();
 
         if ($stmt->rowCount()) {
-            // TODO 验证成绩
-            $stmt = $db->prepare("replace into scores(openid, score, ctime) values(:openid, :score, :ctime)");
+            $stmt = $db->prepare("select score from scores where openid = :openid");
             $stmt->bindParam(':openid', $_POST['openid'], PDO::PARAM_STR);
-            $stmt->bindParam(':score', $_POST['score'], PDO::PARAM_INT);
-            $stmt->bindParam(':ctime', time(), PDO::PARAM_INT);
             $stmt->execute();
+
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($result && $result['score'] < $_POST['score']) {
+                $stmt = $db->prepare("replace into scores(openid, score, ctime) values(:openid, :score, :ctime)");
+                $stmt->bindParam(':openid', $_POST['openid'], PDO::PARAM_STR);
+                $stmt->bindParam(':score', $_POST['score'], PDO::PARAM_INT);
+                $stmt->bindParam(':ctime', time(), PDO::PARAM_INT);
+                $stmt->execute();
+            }
+
             $db = null;
             echo json_encode(['code' => '200', 'msg' => '提交成功']);
         } else {
