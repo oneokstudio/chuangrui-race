@@ -74,6 +74,7 @@ class Main extends egret.DisplayObjectContainer {
                 'imgUrl',
                 0
             );
+            alert(document.cookie);
             this.bgSound = RES.getRes("bg-m");
             if (GlobalData.music) {
                 this.bgSound.play(true);
