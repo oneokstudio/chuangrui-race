@@ -11,16 +11,16 @@ class RankScene extends egret.Sprite {
 
         this.scrollView = new egret.ScrollView();
         this.itemContainer = new egret.DisplayObjectContainer();
-        this.addEventListener(egret.Event.ADDED_TO_STAGE, this.createScene, this);
+        //this.addEventListener(egret.Event.ADDED_TO_STAGE, this.createScene, this);
     }
 
-    private createScene() {
-        for(var i = 0; i < 50; i++) {
-            var temp = new ItemView("" + i, i + 100);
+    public createScene(rankList) {
+        for(var i = 0; i < rankList.length; i++) {
+            var temp = new ItemView(i+1, rankList[i].headimgurl, rankList[i].nickname, rankList[i].score);
             this.itemContainer.addChild(temp);
             temp.width = this.width;
             temp.x = 0;
-            temp.y = i * 35;
+            temp.y = i * 36;
         }
 
         this.scrollView.width = this.width;

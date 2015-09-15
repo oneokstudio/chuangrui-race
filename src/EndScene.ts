@@ -130,6 +130,10 @@ class EndScene extends egret.DisplayObjectContainer {
         textField3.y = 880;
         this.addChild(textField3);
 
+        Http.get("backend/query_rank.php", "openid=" + location.search.substring(8), function(data) {
+            data = JSON.parse(data);
+            rankScene.createScene(data.rank_list);
+        });
         this.addChild(this.adSceneLayer);
     }
 
