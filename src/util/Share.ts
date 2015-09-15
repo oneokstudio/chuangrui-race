@@ -61,7 +61,7 @@ class Share extends egret.DisplayObjectContainer {
         console.log('getWeiXinConfig');
         //配置参数
         var bodyConfig = new BodyConfig();
-        bodyConfig.debug = false;// 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        bodyConfig.debug = true;// 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
         bodyConfig.appId = this.signPackage.appId;// 必填，公众号的唯一标识
         bodyConfig.timestamp = this.signPackage.timestamp;// 必填，生成签名的时间戳
         bodyConfig.nonceStr = this.signPackage.nonceStr;// 必填，生成签名的随机串
@@ -88,6 +88,7 @@ class Share extends egret.DisplayObjectContainer {
      */
     public toWeiXin(title,desc,link,imgUrl,type:number = 0, callback:Function = null):void {//微信分享
         wx.ready(function(){
+            wx.showOptionMenu({});
             var bodyMenuShareTimeline = new BodyMenuShareTimeline();
             var bodyMenuShareAppMessage = new BodyMenuShareAppMessage();
             bodyMenuShareAppMessage.title = bodyMenuShareTimeline.title = title;
