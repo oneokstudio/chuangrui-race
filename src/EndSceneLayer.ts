@@ -14,7 +14,7 @@ class EndSceneLayer extends egret.DisplayObjectContainer {
         //关闭按钮
         var closeButton = new egret.TextField();
         closeButton.anchorX = 1;
-        closeButton.x = 380;
+        closeButton.x = 420;
         closeButton.y = 10;
         closeButton.touchEnabled = true;
         closeButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, function() {

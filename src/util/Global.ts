@@ -10,7 +10,6 @@ module Global {
     //初始化
     export function init():void {
         Global.share = new Share();
-        console.log(Global.share);
     }
 
     //手机旋转适配

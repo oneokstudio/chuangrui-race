@@ -37,7 +37,6 @@ class Share extends egret.DisplayObjectContainer {
             this.os = 'pc';
         }
 
-        console.log('init', this.os);
         if (this.os == 'wx') {
             this.getSignPackage();
         }
@@ -80,9 +79,9 @@ class Share extends egret.DisplayObjectContainer {
             wx.showOptionMenu({});
             console.log("ready in");
             Global.share.toWeiXin(
-                'title',
-                'desc',
-                'link',
+                '一起来挑战TE赛车吧！',
+                '丰富奖品等你来~',
+                'http://studio.windra.in/chuangrui-race/',
                 'imgUrl',
                 0
             );

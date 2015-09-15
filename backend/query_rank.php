@@ -17,14 +17,14 @@ if (isset($_GET['openid'])) {
         $db = null;
 
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $ids = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
-
-        if ($key = array_search($_GET['openid'], $ids)) {
-            $flag = $key + 1;
-        } else {
-            $flag = 0;
+        $flag = 0;
+        for ($i = 0; $i < sizeof($results); $i++) {
+            if ($results[$i]['openid'] == $_GET['openid']) {
+                $flag = $i + 1;
+                break;
+            }
         }
-
+        
         $return = ['code' => '200', 'rank_list' => $results, 'my_rank' => $flag];
         echo json_encode($return);
     } catch (PDOException $e) {
