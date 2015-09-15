@@ -27,7 +27,7 @@ class Share extends egret.DisplayObjectContainer {
         this.signUrl = 'http://studio.windra.in/chuangrui-race/backend/race_share_wx.php';
 
         var ua = navigator.userAgent.toLowerCase();
-        if (/(micromessage)/i.test(ua)) {
+        if (/(micromessenger)/i.test(ua)) {
             this.os = 'wx';
         } else if (/(iphone|ipod|ipad)/i.test(ua)) {
             this.os = 'ios';
@@ -78,9 +78,9 @@ class Share extends egret.DisplayObjectContainer {
             wx.showOptionMenu({});
             console.log("ready in");
             Global.share.toWeiXin(
-                'title',
-                'desc',
-                'link',
+                '一起来挑战TE赛车吧！',
+                '丰富奖品等你来~',
+                'http://studio.windra.in/chuangrui-race/',
                 'imgUrl',
                 0
             );

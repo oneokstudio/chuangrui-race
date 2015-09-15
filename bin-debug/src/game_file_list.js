@@ -11,17 +11,17 @@ var game_file_list = [
 	"entity/Game.js",
 	"NoticeScene.js",
 	"UIScene.js",
+	"util/Http.js",
 	"BitmapMenuItem.js",
 	"ItemView.js",
 	"Main.js",
 	"entity/Player.js",
-	"util/Http.js",
+	"util/Global.js",
 	"AdSceneLayer.js",
 	"EndSceneLayer.js",
 	"GameScene.js",
 	"RankScene.js",
 	"EndScene.js",
 	"LoadingUI.js",
-	"entity/Road.js",
-	"util/Global.js"
+	"entity/Road.js"
 ];
