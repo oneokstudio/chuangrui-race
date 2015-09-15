@@ -1245,6 +1245,7 @@ class Wechat
             }
             $this->access_token = $json['access_token'];
             $expire = $json['expires_in'] ? intval($json['expires_in']) - 100 : 3600;
+            print_r($json);
             $this->setCache($authname, $this->access_token, $expire);
             return $this->access_token;
         }
