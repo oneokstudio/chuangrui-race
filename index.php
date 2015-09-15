@@ -1,4 +1,4 @@
-<?php
+<?php ob_start();
 /**
  * Created by PhpStorm.
  * User: sysumeepo
@@ -17,7 +17,8 @@ $opt = array(
 );
 
 $we = new Wechat($opt);
-$redirectUrl = $we->getOauthRedirect("/backend/callback.php");
+$redirectUrl = $we->getOauthRedirect("http://studio.windra.in/chuangrui-race/backend/callback.php");
 
-//http_redirect($redirectUrl);
-echo $redirectUrl;
+header($redirectUrl);
+ob_end_flush();
+?>

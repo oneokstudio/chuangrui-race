@@ -37,7 +37,6 @@ class Share extends egret.DisplayObjectContainer {
             this.os = 'pc';
         }
 
-        console.log('init', this.os);
         if (this.os == 'wx') {
             this.getSignPackage();
         }
