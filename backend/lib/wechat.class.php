@@ -1182,6 +1182,7 @@ class Wechat
     protected function setCache($cachename, $value, $expired)
     {
         $client = new Predis\Client();
+        file_put_contents('test', "\ntype = " . gettype($value));
         $client->set($cachename, $value, $expired);
         return true;
     }
