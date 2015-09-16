@@ -19,16 +19,15 @@ class ShareLayer extends egret.DisplayObjectContainer {
 
     private onAddToStage() {
         //橙色遮罩层
+        this.maskLayer.graphics.clear();
         this.maskLayer.graphics.beginFill(0xe98300, 0.4);
         this.maskLayer.graphics.drawRect(0, 0, this.stageW, this.stageH);
         this.maskLayer.graphics.endFill();
         this.addChild(this.maskLayer);
         this.maskLayer.touchEnabled = true;
-        this.maskLayer.addEventListener(egret.TouchEvent.TOUCH_BEGIN, function () {
+        this.maskLayer.addEventListener(egret.TouchEvent.TOUCH_END, function () {
             this.parent.removeChild(this);
         }, this, true);
-        this.maskLayer.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.onPrevent, this, true);
-        this.maskLayer.addEventListener(egret.TouchEvent.TOUCH_END, this.onPrevent, this, true);
 
         this.shareBg.texture = RES.getRes("shareText");
         this.shareBg.anchorX = 0.5;
@@ -37,10 +36,6 @@ class ShareLayer extends egret.DisplayObjectContainer {
         this.shareBg.x = this.stageW / 2;
         this.shareBg.y = 30;
         this.addChild(this.shareBg);
-    }
-
-    private onPrevent(event:egret.TouchEvent) {
-        event.stopPropagation();
     }
 
     public static getInstance():ShareLayer {
