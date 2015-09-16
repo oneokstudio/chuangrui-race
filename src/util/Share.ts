@@ -77,12 +77,16 @@ class Share extends egret.DisplayObjectContainer {
         wx.config(bodyConfig);
         wx.ready(function() {
             wx.showOptionMenu({});
+            wx.hideMenuItems({
+                menuList: ["menuItem:share:qq", "menuItem:share:weiboApp", "menuItem:share:facebook",
+            "menuItem:share:QZone", "menuItem:openWithQQBrowser", "menuItem:openWithSafari"]
+            });
             console.log("ready in");
             Global.share.toWeiXin(
                 '一起来挑战TE赛车吧！',
                 '丰富奖品等你来~',
                 'http://studio.windra.in/chuangrui-race/',
-                'http://studio.windra.in/chuangrui-race/te_new.png',
+                'http://studio.windra.in/chuangrui-race/racing.png',
                 0
             );
         });
