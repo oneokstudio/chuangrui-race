@@ -21,6 +21,7 @@
 	"EndSceneLayer.ts",
 	"GameScene.ts",
 	"RankScene.ts",
+	"ShareLayer.ts",
 	"EndScene.ts",
 	"LoadingUI.ts",
 	"entity/Road.ts"

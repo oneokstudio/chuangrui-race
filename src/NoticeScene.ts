@@ -15,7 +15,7 @@ class NoticeScene extends egret.DisplayObjectContainer {
     }
 
     private initNotice() {
-        egret.Profiler.getInstance().run();
+        //egret.Profiler.getInstance().run();
         this.stageW = egret.MainContext.instance.stage.stageWidth;
         this.stageH = egret.MainContext.instance.stage.stageHeight;
 
