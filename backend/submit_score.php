@@ -23,7 +23,7 @@ if (isset($_POST['openid']) && isset($_POST['score'])) {
             $stmt->execute();
 
             $result = $stmt->fetch(PDO::FETCH_ASSOC);
-            if ($result && $result['score'] < $_POST['score']) {
+            if (!$result || ($result && $result['score'] < $_POST['score'])) {
                 $stmt = $db->prepare("replace into scores(openid, score, ctime) values(:openid, :score, :ctime)");
                 $stmt->bindParam(':openid', $_POST['openid'], PDO::PARAM_STR);
                 $stmt->bindParam(':score', $_POST['score'], PDO::PARAM_INT);
