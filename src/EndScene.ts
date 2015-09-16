@@ -143,7 +143,8 @@ class EndScene extends egret.DisplayObjectContainer {
                 this.parentScene.restartGame();
                 break;
             case "fbButton":
-                alert('暂缺公众号关注链接');
+                //alert('暂缺公众号关注链接');
+                window.open("http://www.te.com.cn/chn-zh/policies-agreements/wechat.html");
                 //this.addChild(this.endSceneLayer);
                 //this.endSceneLayer.x = this.stageW / 2;
                 //this.endSceneLayer.y = this.stageH / 2;
