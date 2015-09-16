@@ -75,7 +75,7 @@ class GameScene extends egret.DisplayObjectContainer {
                     '我在 TE 赛车游戏里跑出了' + this.game.score + '分的成绩！敢来挑战吗？',
                     '丰富奖品等你来~',
                     'http://studio.windra.in/chuangrui-race/',
-                    'http://studio.windra.in/chuangrui-race/te.png',
+                    'http://studio.windra.in/chuangrui-race/TE.png',
                     0
                 );
 
