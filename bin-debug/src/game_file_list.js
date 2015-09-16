@@ -21,6 +21,7 @@ var game_file_list = [
 	"EndSceneLayer.js",
 	"GameScene.js",
 	"RankScene.js",
+	"ShareLayer.js",
 	"EndScene.js",
 	"LoadingUI.js",
 	"entity/Road.js"

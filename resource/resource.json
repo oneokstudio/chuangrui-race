@@ -89,12 +89,17 @@
       "url": "assets/gzh.jpg",
       "type": "image",
       "name": "gzh"
+    },
+    {
+      "url": "assets/shareText.png",
+      "type": "image",
+      "name": "shareText"
     }
   ],
   "groups": [
     {
       "name": "preload",
-      "keys": "bgImage, ImageSheet, road, noticeBg, wing, rank, bg-m, gaming-m, overload-m, crash-m, heat-m, hit-m, te, face, wx, car, ad, gzh"
+      "keys": "bgImage, ImageSheet, road, noticeBg, wing, rank, bg-m, gaming-m, overload-m, crash-m, heat-m, hit-m, te, face, wx, car, ad, gzh, shareText"
     }
   ]
 }

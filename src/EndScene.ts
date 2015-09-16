@@ -14,6 +14,7 @@ class EndScene extends egret.DisplayObjectContainer {
     private parentScene:GameScene;
     private endSceneLayer:EndSceneLayer;
     private adSceneLayer:AdSceneLayer;
+    private shareLayer:ShareLayer;
 
     constructor() {
         super();
@@ -23,6 +24,7 @@ class EndScene extends egret.DisplayObjectContainer {
         this.textField = new egret.TextField();
         this.endSceneLayer = EndSceneLayer.getInstance();
         this.adSceneLayer = AdSceneLayer.getInstance();
+        this.shareLayer = ShareLayer.getInstance();
         this.stageH = egret.MainContext.instance.stage.stageHeight;
         this.stageW = egret.MainContext.instance.stage.stageWidth;
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.createScene, this);
@@ -143,14 +145,13 @@ class EndScene extends egret.DisplayObjectContainer {
                 this.parentScene.restartGame();
                 break;
             case "fbButton":
-                //alert('暂缺公众号关注链接');
                 window.open("http://www.te.com.cn/chn-zh/policies-agreements/wechat.html");
                 //this.addChild(this.endSceneLayer);
                 //this.endSceneLayer.x = this.stageW / 2;
                 //this.endSceneLayer.y = this.stageH / 2;
                 break;
             case "wxButton":
-                //TODO:微信自定义分享
+                this.addChild(this.shareLayer);
                 break;
         }
     }
