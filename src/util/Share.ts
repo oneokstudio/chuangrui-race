@@ -82,7 +82,7 @@ class Share extends egret.DisplayObjectContainer {
                 '一起来挑战TE赛车吧！',
                 '丰富奖品等你来~',
                 'http://studio.windra.in/chuangrui-race/',
-                'http://studio.windra.in/chuangrui-race/te.png',
+                'http://studio.windra.in/chuangrui-race/TE.png',
                 0
             );
         });
