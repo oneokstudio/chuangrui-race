@@ -65,7 +65,7 @@ class GameScene extends egret.DisplayObjectContainer {
             this.UIScene.updateUIText(this.game.score, this.game.time);
             this.game.obstacleManager.updatePool(advancedTime);
             this.bg.updateBgPosition(advancedTime);
-            if(this.game.time === 50) {
+            if(this.game.time === 0) {
                 this.game.gameOver();
                 this.removeEventListener(egret.Event.ENTER_FRAME, this.onEnterFrame, this);
                 _hmt.push(["_trackEvent", "game", "state", "over"]);
@@ -75,7 +75,7 @@ class GameScene extends egret.DisplayObjectContainer {
                     '我在 TE 赛车游戏里跑出了' + this.game.score + '分的成绩！敢来挑战吗？',
                     '丰富奖品等你来~',
                     'http://studio.windra.in/chuangrui-race/',
-                    'imgUrl',
+                    'http://studio.windra.in/chuangrui-race/te.png',
                     0
                 );
 
