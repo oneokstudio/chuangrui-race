@@ -85,13 +85,13 @@ class EndScene extends egret.DisplayObjectContainer {
 
         //底部button
         this.wxButton = new BitmapMenuItem("wxButton", "wx", this.onButtonClicked, this);
-        this.fbButton = new BitmapMenuItem("fbButton", "ImageSheet.fbButton", this.onButtonClicked, this);
+        this.fbButton = new BitmapMenuItem("fbButton", "gzh", this.onButtonClicked, this);
         this.reButton = new BitmapMenuItem("reButton", "ImageSheet.restartButton", this.onButtonClicked, this);
         this.wxButton.width = this.wxButton.height = 110;
         this.wxButton.x = 145;
         this.wxButton.y = 810;
         this.addChild(this.wxButton);
-        this.fbButton.width = this.fbButton.height = 120;
+        this.fbButton.width = this.fbButton.height = 110;
         this.fbButton.x = 320;
         this.fbButton.y = 810;
         this.addChild(this.fbButton);
@@ -113,9 +113,9 @@ class EndScene extends egret.DisplayObjectContainer {
         var textField2 = new egret.TextField();
         textField2.size = 25;
         textField2.textColor = 0xffffff;
-        textField2.text ="为TE赞助车手加油";
+        textField2.text ="点击关注TE连动";
         textField2.textAlign = "center";
-        textField2.width = 120;
+        textField2.width = 200;
         textField2.anchorX = 0.5;
         textField2.x = 320;
         textField2.y = 880;
@@ -143,9 +143,10 @@ class EndScene extends egret.DisplayObjectContainer {
                 this.parentScene.restartGame();
                 break;
             case "fbButton":
-                this.addChild(this.endSceneLayer);
-                this.endSceneLayer.x = this.stageW / 2;
-                this.endSceneLayer.y = this.stageH / 2;
+                alert('暂缺公众号关注链接');
+                //this.addChild(this.endSceneLayer);
+                //this.endSceneLayer.x = this.stageW / 2;
+                //this.endSceneLayer.y = this.stageH / 2;
                 break;
             case "wxButton":
                 //TODO:微信自定义分享
