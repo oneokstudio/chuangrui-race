@@ -1,5 +1,6 @@
 {
     "require": {
-        "predis/predis": "^1.0"
+        "predis/predis": "^1.0",
+        "neitanod/forceutf8": "dev-master"
     }
 }

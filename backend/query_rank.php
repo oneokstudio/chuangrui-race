@@ -6,6 +6,10 @@
  * Time: 上午11:55
  */
 
+require_once './vendor/autoload.php';
+
+use \ForceUTF8\Encoding;
+
 
 if (isset($_GET['openid'])) {
     try {
@@ -21,15 +25,14 @@ if (isset($_GET['openid'])) {
 
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-//        for ($i = 0; $i < sizeof($results); $i++) {
-//            $charset = mb_detect_encoding($results[$i]['nickname'], array("ASCII","UTF-8","GB2312","GBK","BIG5"));
-//            if ($charset == "UTF-8") {
-//                continue;
-//            }
-//            $results[$i]['nickname'] = iconv("ASCII", "UTF-8", $results[$i]['nickname']);
-//            $charset = mb_detect_encoding($results[$i]['nickname'], "auto");
-//            echo $charset . "\n";
-//        }
+        for ($i = 0; $i < sizeof($results); $i++) {
+            $charset = mb_detect_encoding($results[$i]['nickname'], array("ASCII","UTF-8","GB2312","GBK","BIG5", "ISO-8859-1"));
+            if ($charset == "UTF-8") {
+                continue;
+            }
+            
+            $results[$i]['nickname'] = Encoding::toUTF8($results[$i]['nickname']);
+        }
 
         $flag = 0;
         for ($i = 0; $i < sizeof($results); $i++) {
