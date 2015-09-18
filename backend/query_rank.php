@@ -30,8 +30,8 @@ if (isset($_GET['openid'])) {
             if ($charset == "UTF-8") {
                 continue;
             }
-            
-            $results[$i]['nickname'] = Encoding::toUTF8($results[$i]['nickname']);
+
+            $results[$i]['nickname'] = "...";
         }
 
         $flag = 0;
