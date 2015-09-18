@@ -8,7 +8,6 @@
 
 require_once './vendor/autoload.php';
 
-use \ForceUTF8\Encoding;
 
 
 if (isset($_GET['openid'])) {
@@ -27,7 +26,7 @@ if (isset($_GET['openid'])) {
 
 
         for ($i = 0; $i < sizeof($results); $i++) {
-           $results[$i]['nickname'] = rawurldecode($results[$i]['nickname']);
+           $results[$i]['nickname'] =  \ForceUTF8\Encoding::fixUTF8($results[$i]['nickname']);
         }
         $flag = 0;
         for ($i = 0; $i < sizeof($results); $i++) {
