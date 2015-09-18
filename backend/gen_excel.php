@@ -8,7 +8,7 @@
 
 require_once './PhpExcel/PHPExcel.php';
 
-date_default_timezone_set('ETC/GMT-8');
+date_default_timezone_set('Asia/Shanghai');
 
 try {
     $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
