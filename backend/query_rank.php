@@ -25,8 +25,11 @@ if (isset($_GET['openid'])) {
             }
         }
 
-        $return = ['code' => '200', 'rank_list' => array_map(utf8_encode, $results), 'my_rank' => $flag];
+        $return = ['code' => '200', 'rank_list' => $results, 'my_rank' => $flag];
         echo json_encode($return);
+        if ($error = json_last_error_msg()) {
+            throw new \LogicException(sprintf("Failed to parse json string '%s', error: '%s'", $return, $error));
+        }
     } catch (PDOException $e) {
         echo json_encode(['code' => '500', 'msg' => '服务器繁忙，请稍后重试']);
         die();
