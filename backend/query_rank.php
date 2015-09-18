@@ -21,13 +21,15 @@ if (isset($_GET['openid'])) {
 
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        for ($i = 0; $i < sizeof($results); $i++) {
-            $charset = mb_detect_encoding($results[$i]['nickname'], array("ASCII","UTF-8","GB2312","GBK","BIG5"));
-            if ($charset == "UTF-8") {
-                continue;
-            }
-            $results[$i]['nickname'] = iconv("ASCII", "UTF-8", $results[$i]['nickname']);
-        }
+//        for ($i = 0; $i < sizeof($results); $i++) {
+//            $charset = mb_detect_encoding($results[$i]['nickname'], array("ASCII","UTF-8","GB2312","GBK","BIG5"));
+//            if ($charset == "UTF-8") {
+//                continue;
+//            }
+//            $results[$i]['nickname'] = iconv("ASCII", "UTF-8", $results[$i]['nickname']);
+//            $charset = mb_detect_encoding($results[$i]['nickname'], "auto");
+//            echo $charset . "\n";
+//        }
 
         $flag = 0;
         for ($i = 0; $i < sizeof($results); $i++) {
@@ -38,11 +40,7 @@ if (isset($_GET['openid'])) {
         }
 
         $return = ['code' => '200', 'rank_list' => $results, 'my_rank' => $flag];
-        if ($json = json_encode($return)) {
-            echo $json;
-        } else {
-            echo json_last_error_msg();
-        }
+        echo json_encode($return);
     } catch (PDOException $e) {
         echo json_encode(['code' => '500', 'msg' => '服务器繁忙，请稍后重试']);
         die();
