@@ -26,7 +26,7 @@ if (isset($_GET['openid'])) {
 
 
         for ($i = 0; $i < sizeof($results); $i++) {
-           $results[$i]['nickname'] =  \ForceUTF8\Encoding::fixUTF8($results[$i]['nickname']);
+           $results[$i]['nickname'] =  \ForceUTF8\Encoding::fixUTF8(preg_replace('/\xEE[\x80-\xBF][\x80-\xBF]|\xEF[\x81-\x83][\x80-\xBF]/', '', $results[$i]['nickname']));
         }
         $flag = 0;
         for ($i = 0; $i < sizeof($results); $i++) {
