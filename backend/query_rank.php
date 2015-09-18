@@ -25,15 +25,10 @@ if (isset($_GET['openid'])) {
 
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
         for ($i = 0; $i < sizeof($results); $i++) {
-            $charset = mb_detect_encoding($results[$i]['nickname'], array("ASCII","UTF-8","GB2312","GBK","BIG5", "ISO-8859-1"));
-            if ($charset == "UTF-8") {
-                continue;
-            }
-
-            $results[$i]['nickname'] = "...";
+           $results[$i]['nickname'] = rawurldecode($results[$i]['nickname']);
         }
-
         $flag = 0;
         for ($i = 0; $i < sizeof($results); $i++) {
             if ($results[$i]['openid'] == $_GET['openid']) {
