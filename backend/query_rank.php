@@ -26,7 +26,7 @@ if (isset($_GET['openid'])) {
             if ($charset == "UTF-8") {
                 continue;
             }
-            $results[$i]['nickname'] = iconv("GBK", "UTF-8", $results[$i]['nickname']);
+            $results[$i]['nickname'] = iconv("ASCII", "UTF-8", $results[$i]['nickname']);
         }
 
         $flag = 0;
