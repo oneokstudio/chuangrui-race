@@ -9,10 +9,10 @@
 
 if (isset($_GET['openid'])) {
     try {
-        $options = array(
-            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
-        );
-        $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc', $options);
+//        $options = array(
+//            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+//        );
+        $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $db->prepare("select scores.openid, scores.score, users.nickname, users.headimgurl
                               from scores, users where scores.openid = users.openid order by scores.score desc limit 50");
@@ -20,6 +20,15 @@ if (isset($_GET['openid'])) {
         $db = null;
 
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        for ($i = 0; $i < sizeof($results); $i++) {
+            $charset = mb_detect_encoding($results[$i]['nickname'], array("ASCII","UTF-8","GB2312","GBK","BIG5"));
+            if ($charset == "UTF-8") {
+                continue;
+            }
+            $results[$i]['nickname'] = iconv("GBK", "UTF-8", $results[$i]['nickname']);
+        }
+
         $flag = 0;
         for ($i = 0; $i < sizeof($results); $i++) {
             if ($results[$i]['openid'] == $_GET['openid']) {
