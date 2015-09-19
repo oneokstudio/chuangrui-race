@@ -26,7 +26,10 @@ if (isset($_GET['openid'])) {
 
 
         for ($i = 0; $i < sizeof($results); $i++) {
-           $results[$i]['nickname'] =  \ForceUTF8\Encoding::fixUTF8(preg_replace('/\xEE[\x80-\xBF][\x80-\xBF]|\xEF[\x81-\x83][\x80-\xBF]/', '', $results[$i]['nickname']));
+            $encoding = mb_detect_encoding($results[$i]['nickname']);
+//            $results[$i]['nickname'] =  \ForceUTF8\Encoding::fixUTF8(preg_replace('/\xEE[\x80-\xBF][\x80-\xBF]|\xEF[\x81-\x83][\x80-\xBF]/', '', $results[$i]['nickname']));
+            $results[$i]['nickname'] = mb_convert_encoding($results[$i]['nickname'], 'UTF-8', $encoding);
+//            echo mb_detect_encoding(iconv('ASCII', 'UTF-8//IGNORE', $results[$i]['nickname'])) . "\n";
         }
         $flag = 0;
         for ($i = 0; $i < sizeof($results); $i++) {
