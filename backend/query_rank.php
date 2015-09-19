@@ -18,7 +18,7 @@ if (isset($_GET['openid'])) {
         $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $db->prepare("select scores.openid, scores.score, users.nickname, users.headimgurl
-                              from scores, users where scores.openid = users.openid order by scores.score desc limit 50");
+                              from scores, users where scores.openid = users.openid order by scores.score desc limit 100");
         $stmt->execute();
         $db = null;
 
@@ -27,9 +27,7 @@ if (isset($_GET['openid'])) {
 
         for ($i = 0; $i < sizeof($results); $i++) {
             $encoding = mb_detect_encoding($results[$i]['nickname']);
-//            $results[$i]['nickname'] =  \ForceUTF8\Encoding::fixUTF8(preg_replace('/\xEE[\x80-\xBF][\x80-\xBF]|\xEF[\x81-\x83][\x80-\xBF]/', '', $results[$i]['nickname']));
             $results[$i]['nickname'] = mb_convert_encoding($results[$i]['nickname'], 'UTF-8', $encoding);
-//            echo mb_detect_encoding(iconv('ASCII', 'UTF-8//IGNORE', $results[$i]['nickname'])) . "\n";
         }
         $flag = 0;
         for ($i = 0; $i < sizeof($results); $i++) {
