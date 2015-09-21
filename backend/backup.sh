@@ -12,7 +12,7 @@ LOGFILE=/home/ubuntu/Data_Backup/race/data_backup.log #日记文件路径
 DATE=`date '+%Y%m%d-%H%M'` #日期格式（作为文件名）
 DUMPFILE=$DATE.sql #备份文件名
 ARCHIVE=$DATE.sql.tgz #压缩文件名
-OPTIONS="–-opt -u$USER -p$PASSWORD $DATABASE –extended-insert=false –triggers=false -R –hex-blob –flush-logs –delete-master-logs" #mysqldump 参数 详情见帮助 mysqldump －help
+OPTIONS="-u$USER -p$PASSWORD –-opt --databases $DATABASE" #mysqldump 参数 详情见帮助 mysqldump －help
 
 #判断备份文件存储目录是否存在，否则创建该目录
 if [ ! -d $BACKUP_DIR ] ;
