@@ -17,7 +17,13 @@ OPTIONS="-u$USER -p$PASSWORD –opt –extended-insert=false –triggers=false -
 #判断备份文件存储目录是否存在，否则创建该目录
 if [ ! -d $BACKUP_DIR ] ;
 then
-mkdir -p “$BACKUP_DIR”
+mkdir -p "$BACKUP_DIR"
+fi
+
+#判断log文件是否存在
+if [ ! -f $LOGFILE] ;
+then
+touch "$LOGFILE"
 fi
 
 #开始备份之前，将备份信息头写入日记文件
