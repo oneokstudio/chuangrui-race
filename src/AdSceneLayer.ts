@@ -8,6 +8,8 @@ class AdSceneLayer extends egret.DisplayObjectContainer {
     private adButton:BitmapMenuItem;
     private stageW:number;
     private stageH:number;
+    private panel:egret.TextField;
+    private game:Entity.Game = Entity.Game.getInstance();
 
     constructor() {
         super();
@@ -15,6 +17,7 @@ class AdSceneLayer extends egret.DisplayObjectContainer {
         this.adBg = new egret.Bitmap();
         this.stageH = egret.MainContext.instance.stage.stageHeight;
         this.stageW = egret.MainContext.instance.stage.stageWidth;
+        this.panel = new egret.TextField();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
 
@@ -32,11 +35,21 @@ class AdSceneLayer extends egret.DisplayObjectContainer {
         //TE简介弹框
         this.adBg.texture = RES.getRes("ad");
         this.adBg.anchorX = 0.5;
-        this.adBg.width = 517;
-        this.adBg.height = 284;
         this.adBg.x = this.stageW / 2;
         this.adBg.y = 200;
         this.addChild(this.adBg);
+
+        //分数板
+        this.panel.textColor = 0xef8500;
+        this.panel.text = "您此次挑战获得" + this.game.score + "分，来看看您的排名上榜了吗？";
+        this.panel.size = 25;
+        this.panel.width = 400;
+        this.panel.textAlign = "center";
+        this.panel.lineSpacing = 10;
+        this.panel.anchorX = 0.5;
+        this.panel.x = this.stageW / 2;
+        this.panel.y = 350;
+        this.addChild(this.panel);
 
         //关闭按钮
         this.adButton = new BitmapMenuItem("adButton", "", function () {
@@ -46,7 +59,7 @@ class AdSceneLayer extends egret.DisplayObjectContainer {
         this.adButton.width = 290;
         this.adButton.height = 100;
         this.adButton.x = this.stageW / 2;
-        this.adButton.y = 400;
+        this.adButton.y = 500;
         this.addChild(this.adButton);
     }
 
