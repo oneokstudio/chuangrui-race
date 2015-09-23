@@ -9,6 +9,7 @@ class AdSceneLayer extends egret.DisplayObjectContainer {
     private stageW:number;
     private stageH:number;
     private panel:egret.TextField;
+    private rank:number;
     private game:Entity.Game = Entity.Game.getInstance();
 
     constructor() {
@@ -18,14 +19,18 @@ class AdSceneLayer extends egret.DisplayObjectContainer {
         this.stageH = egret.MainContext.instance.stage.stageHeight;
         this.stageW = egret.MainContext.instance.stage.stageWidth;
         this.panel = new egret.TextField();
+        this.maskLayer.graphics.beginFill(0xe98300, 0.4);
+        this.maskLayer.graphics.drawRect(0, 0, this.stageW, this.stageH);
+        this.maskLayer.graphics.endFill();
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
+    }
+
+    public setRank(rank: number) {
+        this.rank = rank;
     }
 
     private onAddToStage() {
         //橙色遮罩层
-        this.maskLayer.graphics.beginFill(0xe98300, 0.4);
-        this.maskLayer.graphics.drawRect(0, 0, this.stageW, this.stageH);
-        this.maskLayer.graphics.endFill();
         this.addChild(this.maskLayer);
         this.maskLayer.touchEnabled = true;
         this.maskLayer.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onPrevent, this, true);
@@ -41,7 +46,11 @@ class AdSceneLayer extends egret.DisplayObjectContainer {
 
         //分数板
         this.panel.textColor = 0xef8500;
-        this.panel.text = "您此次挑战获得" + this.game.score + "分，来看看您的排名上榜了吗？";
+        if(this.rank === 0) {
+            this.panel.text = "您此次挑战获得" + this.game.score + "分，这次没有进入前100名，要加油哦！";
+        }else {
+            this.panel.text = "您此次挑战获得" + this.game.score + "分，获得的排名是" + this.rank + "，加油！";
+        }
         this.panel.size = 25;
         this.panel.width = 400;
         this.panel.textAlign = "center";

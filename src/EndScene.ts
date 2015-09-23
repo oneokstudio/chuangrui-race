@@ -132,11 +132,13 @@ class EndScene extends egret.DisplayObjectContainer {
         textField3.y = 880;
         this.addChild(textField3);
 
+        var me = this;
         Http.get("http://studio.windra.in/chuangrui-race/backend/query_rank.php", "openid=" + location.search.substring(8), function(data) {
             data = JSON.parse(data);
             rankScene.createScene(data.rank_list);
+            me.adSceneLayer.setRank(data.my_rank);
+            me.addChild(me.adSceneLayer);
         });
-        this.addChild(this.adSceneLayer);
     }
 
     private onButtonClicked(name) {
