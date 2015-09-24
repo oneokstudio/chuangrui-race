@@ -153,7 +153,7 @@ class EndScene extends egret.DisplayObjectContainer {
                 //this.endSceneLayer.y = this.stageH / 2;
                 break;
             case "wxButton":
-                this.addChild(this.shareLayer);
+                //this.addChild(this.shareLayer);
                 break;
         }
     }

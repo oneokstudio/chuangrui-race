@@ -75,9 +75,9 @@ class UIScene extends egret.DisplayObjectContainer {
         this.leftButton.y = stageH - 60;
         this.leftButton.scaleX = this.leftButton.scaleY = 1.7;
         this.leftButton.anchorX = this.leftButton.anchorY = 0.5;
-        this.leftButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onLeftTouchBegin, this);
+/*        this.leftButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onLeftTouchBegin, this);
         this.leftButton.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onLeftTouchEnd, this);
-        this.leftButton.addEventListener(egret.TouchEvent.TOUCH_END, this.onLeftTouchEnd, this);
+        this.leftButton.addEventListener(egret.TouchEvent.TOUCH_END, this.onLeftTouchEnd, this);*/
         this.addChild(this.leftButton);
 
         //右按钮
@@ -87,9 +87,11 @@ class UIScene extends egret.DisplayObjectContainer {
         this.rightButton.y = stageH - 60;
         this.rightButton.scaleX = this.rightButton.scaleY = 1.7;
         this.rightButton.anchorX = this.rightButton.anchorY = 0.5;
-        this.rightButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onRightTouchBegin, this);
+/*        this.rightButton.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.onRightTouchBegin, this);
         this.rightButton.addEventListener(egret.TouchEvent.TOUCH_RELEASE_OUTSIDE, this.onRightTouchEnd, this);
-        this.rightButton.addEventListener(egret.TouchEvent.TOUCH_END, this.onRightTouchEnd, this);
+        this.rightButton.addEventListener(egret.TouchEvent.TOUCH_END, this.onRightTouchEnd, this);*/
+        //PC事件处理
+        this.registerKeyEvent();
         this.addChild(this.rightButton);
     }
 
@@ -116,6 +118,47 @@ class UIScene extends egret.DisplayObjectContainer {
     private onRightTouchEnd(event:egret.TouchEvent) {
         this.right = false;
         this.rightButton.scaleX = this.rightButton.scaleY = 1.7;
+    }
+
+    private onKeyDown(event:any) {
+        switch (event.keyCode) {
+            case 37:
+                this.onLeftTouchBegin(null);
+                break;
+            case 39:
+                this.onRightTouchBegin(null);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private onKeyUp(event:any) {
+        switch (event.keyCode) {
+            case 37:
+                this.onLeftTouchEnd(null);
+                break;
+            case 39:
+                this.onRightTouchEnd(null);
+                break;
+            default:
+                break;
+        }
+    }
+
+    private registerKeyEvent() {
+        var me = this;
+        document.addEventListener("keydown", function(event) {
+            me.onKeyDown.call(me, event);
+        }, false);
+        document.addEventListener("keyup", function(event) {
+            me.onKeyUp.call(me, event);
+        }, false);
+    }
+
+    public unRegisterKeyEvent() {
+        document.removeEventListener("keydown", null);
+        document.removeEventListener("keyup", null);
     }
 
     public static getInstance():UIScene {

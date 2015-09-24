@@ -67,6 +67,7 @@ class GameScene extends egret.DisplayObjectContainer {
             this.bg.updateBgPosition(advancedTime);
             if(this.game.time == 0) {
                 this.game.gameOver();
+                this.UIScene.unRegisterKeyEvent();
                 this.removeEventListener(egret.Event.ENTER_FRAME, this.onEnterFrame, this);
                 _hmt.push(["_trackEvent", "game", "state", "over"]);
 
@@ -80,12 +81,13 @@ class GameScene extends egret.DisplayObjectContainer {
                 );
 
                 var me = this;
-                Http.post("http://studio.windra.in/chuangrui-race/backend/submit_score.php",
+/*                Http.post("http://studio.windra.in/chuangrui-race/backend/submit_score.php",
                     "openid=" + location.search.substring(8) +
                     "&score=" + this.game.score
                 , function(data) {
                     me.addChild(me.endScene);
-                });
+                });*/
+                me.addChild(me.endScene);
             }
         }
     }
