@@ -49,7 +49,7 @@ class AdSceneLayer extends egret.DisplayObjectContainer {
         if(this.rank === 0) {
             this.panel.text = "您此次挑战获得" + this.game.score + "分，这次没有进入前100名，要加油哦！";
         }else {
-            this.panel.text = "您此次挑战获得" + this.game.score + "分，获得的排名是" + this.rank + "，加油！";
+            this.panel.text = "您此次挑战获得" + this.game.score + "分，获得的最高排名是" + this.rank + "，加油！";
         }
         this.panel.size = 25;
         this.panel.width = 400;
