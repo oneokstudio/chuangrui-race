@@ -12,15 +12,18 @@ date_default_timezone_set('Asia/Shanghai');
 
 try {
     $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
-    $result = $db->query('SELECT users.nickname, scores.score FROM users, scores WHERE users.openid = scores.openid ORDER BY scores.score DESC ');
+    $result = $db->query('SELECT users.nickname, users.headimgurl, scores.score FROM users, scores WHERE users.openid = scores.openid ORDER BY scores.score DESC ');
     $excel = new PHPExcel();
     $excel->getActiveSheet()->setCellValue('A1', '昵称');
     $excel->getActiveSheet()->setCellValue('B1', '分数');
+    $excel->getActiveSheet()->setCellValue('C1', '头像');
 
     $i = 2;
     foreach ($result as $value) {
+//        $encoding = mb_detect_encoding($value['nickname']);
         $excel->getActiveSheet()->setCellValue('A' . $i, $value['nickname']);
         $excel->getActiveSheet()->setCellValue('B' . $i, $value['score']);
+        $excel->getActiveSheet()->setCellValue('C' . $i, $value['headimgurl']);
         $i++;
     }
 
