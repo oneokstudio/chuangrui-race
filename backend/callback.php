@@ -20,7 +20,7 @@ $we = new Wechat($opt);
 if ($accessRtn = $we->getOauthAccessToken()) {
     if ($userInfo = $we->getOauthUserinfo($accessRtn['access_token'], $accessRtn['openid'])) {
         try {
-            $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
+            $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'MeeDooDB2016');
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $stmt = $db->prepare("replace into users(openid, nickname, sex, headimgurl) values(:openid, :nickname, :sex, :headimgurl)");
 

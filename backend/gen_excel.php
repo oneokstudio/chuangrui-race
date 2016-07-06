@@ -11,7 +11,7 @@ require_once './PhpExcel/PHPExcel.php';
 date_default_timezone_set('Asia/Shanghai');
 
 try {
-    $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
+    $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'MeeDooDB2016');
     $result = $db->query('SELECT users.nickname, users.headimgurl, scores.score FROM users, scores WHERE users.openid = scores.openid ORDER BY scores.score DESC ');
     $excel = new PHPExcel();
     $excel->getActiveSheet()->setCellValue('A1', '昵称');

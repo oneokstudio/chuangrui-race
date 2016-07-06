@@ -15,7 +15,7 @@ if (isset($_GET['openid'])) {
 //        $options = array(
 //            PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
 //        );
-        $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
+        $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'MeeDooDB2016');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $db->prepare("select scores.openid, scores.score, users.nickname, users.headimgurl
                               from scores, users where scores.openid = users.openid order by scores.score desc limit 100");

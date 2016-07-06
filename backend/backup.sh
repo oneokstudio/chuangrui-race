@@ -4,7 +4,7 @@
 #Date : 2010-08-24
 #配置参数
 USER=root #数据库用户名
-PASSWORD=zxc #数据库用户密码
+PASSWORD=MeeDooDB2016 #数据库用户密码
 DATABASE=race #数据库名称
 WEBMASTER=493229225@qq.com #管理员邮箱地址，用以发送备份失败消息提醒
 BACKUP_DIR=/home/ubuntu/Data_Backup/race/ #备份文件存储路径

@@ -11,7 +11,7 @@ date_default_timezone_set('Asia/Shanghai');
 
 if (isset($_POST['openid']) && isset($_POST['score'])) {
     try {
-        $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'zxc');
+        $db = new PDO('mysql:host=127.0.0.1;dbname=race', 'root', 'MeeDooDB2016');
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $stmt = $db->prepare("select * from users where openid = :openid");
         $stmt->bindParam(':openid', $_POST['openid'], PDO::PARAM_STR);
