@@ -27,9 +27,9 @@ class WxPayConfig
 	 * @var string
 	 */
 
-	const APPID = 'wxb2b28f20d3f8a6e3';
-	const APPSECRET = '14a128c38f879e2f95b4db38db6e9536';
-	const ENCODINGAESKEY = 'b50OmEVMUgRckSCR7pPhMuqDsMsNOcPZFXtLooqA46f';
+	const APPID = 'wx73415e798dc79963';
+	const APPSECRET = '9f915da8d836fca36e60870238b1ea1c';
+	const ENCODINGAESKEY = '58916xa5xMnXqFnrKO6VtKvwRa4MT4sNGwD7bH8GSTI';
 	const TOKEN = 'chuangrui';
 
 	const MCHID = '商户ID值';
