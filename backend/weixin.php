@@ -16,5 +16,5 @@ $options = array(
 
 $weObj = new Wechat($options);
 $weObj->valid(true);//明文或兼容模式可以在接口验证通过后注释此句，但加密模式一定不能注释，否则会验证失败
-file_put_contents('log', $_GET['echostr']);
+file_put_contents('test.log', $_GET['echostr']);
 echo $_GET['echostr'];
