@@ -17,7 +17,7 @@ $opt = array(
 );
 
 $we = new Wechat($opt);
-$redirectUrl = $we->getOauthRedirect("http://chuangruirace.meedoo.cc/backend/callback.php");
+$redirectUrl = $we->getOauthRedirect("http://race.meedoo.cc/backend/callback.php");
 
 //echo $redirectUrl;
 
